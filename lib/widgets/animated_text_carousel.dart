@@ -12,6 +12,7 @@ class _AnimatedTextCarouselState extends State<AnimatedTextCarousel> {
     'Cegah stunting, wujudkan generasi yang sehat.',
     'Bersama kita lawan stunting demi masa depan anak.',
     'Jaga pertumbuhan anak, cegah stunting sejak dini.',
+    'Indonesia Emas, Bebas Stunting.',
   ];
 
   int _currentIndex = 0;
