@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-// import 'package:stunting_web/constants/colors.dart';
 import 'package:stunting_web/constants/nav_items.dart';
 
-class DrawerMenu extends StatelessWidget {
-  const DrawerMenu({super.key});
+class DrawerMenu extends StatefulWidget {
+  final Function(String) onMenuItemSelected;
+  const DrawerMenu({super.key, required this.onMenuItemSelected});
 
+  @override
+  State<DrawerMenu> createState() => _DrawerMenuState();
+}
+
+class _DrawerMenuState extends State<DrawerMenu> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -36,16 +41,8 @@ class DrawerMenu extends StatelessWidget {
                 fontSize: 16,
               ),
               onTap: () {
-                // Navigasi berdasarkan item yang dipilih
-                if (navTitles[i] == "Beranda") {
-                  Navigator.pushNamed(context, '/');
-                } else if (navTitles[i] == "Survey Stunting") {
-                  Navigator.pushNamed(context, '/survey');
-                } else if (navTitles[i] == "Laporan") {
-                  Navigator.pushNamed(context, '/laporan');
-                } else if (navTitles[i] == "Log Out") {
-                  // Tambahkan logika untuk log out jika diperlukan
-                }
+                widget.onMenuItemSelected(navTitles[i]);
+                Navigator.pop(context);
               },
               leading: Icon(navIcons[i], color: Colors.white),
               title: Text(navTitles[i]),

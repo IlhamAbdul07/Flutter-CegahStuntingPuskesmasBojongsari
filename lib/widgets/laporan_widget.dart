@@ -1,37 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:stunting_web/constants/colors.dart';
-import 'package:stunting_web/widgets/drawer_menu.dart';
-import 'package:stunting_web/widgets/header.dart';
 
-class LaporanPage extends StatefulWidget {
-  const LaporanPage({super.key});
+class LaporanWidget extends StatefulWidget {
+  const LaporanWidget({super.key});
 
   @override
-  State<LaporanPage> createState() => _LaporanPageState();
+  State<LaporanWidget> createState() => _LaporanWidgetState();
 }
 
-class _LaporanPageState extends State<LaporanPage> {
-  final ScaffoldKey = GlobalKey<ScaffoldState>();
+class _LaporanWidgetState extends State<LaporanWidget> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
-          key: ScaffoldKey,
-          endDrawer: DrawerMenu(),
+          key: _scaffoldKey,
           body: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              Header(
-                onLogoTap: () {},
-                onMenuTap: () {
-                  ScaffoldKey.currentState?.openEndDrawer();
-                },
-              ),
               Container(
                 width: double.infinity,
                 height: 250.0,
                 color: CustomColor.greenMain,
+                child: Text(
+                  "INI LAPORAN PAGES",
+                  style: TextStyle(fontSize: 25),
+                ),
               ),
               Container(
                 width: double.infinity,

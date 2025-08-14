@@ -17,10 +17,17 @@ class _AnimatedTextCarouselState extends State<AnimatedTextCarousel> {
 
   int _currentIndex = 0;
   late Timer _timer;
+  bool _isDisposed =
+      false; // Flag untuk mengecek apakah widget sudah di-dispose
 
   void _changeText() {
     _timer = Timer.periodic(Duration(seconds: 7), (timer) {
+      // Pastikan tidak ada perubahan state jika widget sudah tidak aktif
+      if (_isDisposed) return;
+
       Future.delayed(Duration(milliseconds: 1500), () {
+        if (_isDisposed) return;
+
         setState(() {
           _currentIndex = (_currentIndex + 1) % _texts.length;
         });
@@ -36,6 +43,7 @@ class _AnimatedTextCarouselState extends State<AnimatedTextCarousel> {
 
   @override
   void dispose() {
+    _isDisposed = true; // Tandai widget sebagai disposed
     _timer.cancel();
     super.dispose();
   }

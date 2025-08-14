@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stunting_web/pages/home_page.dart';
-// import 'package:stunting_web/widgets/login_card.dart';
 import 'package:stunting_web/widgets/login_card2.dart';
 
 class LoginPage extends StatefulWidget {
@@ -45,12 +44,6 @@ class _LoginPageState extends State<LoginPage> {
         MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
-  }
-
-  Future<void> _clearLoginStatus() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('isLoggedIn');
-    await prefs.remove('expirationTime');
   }
 
   void _login() {
