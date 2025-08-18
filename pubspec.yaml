@@ -33,6 +33,7 @@ dependencies:
   typewritertext: ^3.0.9
   shared_preferences: ^2.5.3
   reactive_forms: ^18.1.1
+  data_table_2: ^2.6.0
 
 
   # The following adds the Cupertino Icons font to your application.
