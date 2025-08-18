@@ -1,7 +1,6 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:html' as html;
+
 // import 'package:stunting_web/constants/config.dart';
 import 'db_helper.dart';
 // import 'package:flutter/services.dart' show rootBundle;
@@ -106,39 +105,40 @@ class GSheetHelper {
     try {
       final values = [
         [
-          data['tgl'],
-          data["nama"],
-          data["jenis_kelamin"],
-          data['tanggal_lahir'],
-          data["berat_badan"],
-          data["tinggi_badan"],
-          data["lingkar_kepala"],
-          data["lingkar_lengan"],
-          data["posisi_anak"],
-          data["ibu_hamil"],
-          data["pendidikan_ibu"],
-          data["kondisi_ekonomi"],
-          data["pemeriksaan_rutin"],
-          data["istirahat"],
-          data["menghindari_rokok"],
-          data["riwayat_penyakit"],
-          data["kesehatan_mental"],
-          data["persalinan"],
-          data["layanan_kesehatan"],
-          data["asi"],
-          data["pendamping_asi"],
-          data["kualitas_mpasi"],
-          data["makan_anak"],
-          data["pola_makan"],
-          data["status_gizi"],
-          data["riwayat_imunisasi"],
-          data["kebersihan_lingkungan"],
-          data["kebersihan_diri"],
-          data["olahraga"],
-          data["dukungan_keluarga"],
-          data["pola_asuh"],
+          data['tgl'] ?? "",
+          data["nama"] ?? "",
+          data["jenis_kelamin"] ?? "",
+          data['tanggal_lahir'] ?? "",
+          data["berat_badan"] ?? "",
+          data["tinggi_badan"] ?? "",
+          data["lingkar_kepala"] ?? "",
+          data["lingkar_lengan"] ?? "",
+          data["posisi_anak"] ?? "",
+          data["ibu_hamil"] ?? "",
+          data["pendidikan_ibu"] ?? "",
+          data["kondisi_ekonomi"] ?? "",
+          data["pemeriksaan_rutin"] ?? "",
+          data["istirahat"] ?? "",
+          data["menghindari_rokok"] ?? "",
+          data["riwayat_penyakit"] ?? "",
+          data["kesehatan_mental"] ?? "",
+          data["persalinan"] ?? "",
+          data["layanan_kesehatan"] ?? "",
+          data["asi"] ?? "",
+          data["pendamping_asi"] ?? "",
+          data["kualitas_mpasi"] ?? "",
+          data["makan_anak"] ?? "",
+          data["pola_makan"] ?? "",
+          data["status_gizi"] ?? "",
+          data["riwayat_imunisasi"] ?? "",
+          data["kebersihan_lingkungan"] ?? "",
+          data["kebersihan_diri"] ?? "",
+          data["olahraga"] ?? "",
+          data["dukungan_keluarga"] ?? "",
+          data["pola_asuh"] ?? "",
         ],
       ];
+
       final requestData = {'type': "push", 'values': values};
 
       final res = await http.post(
@@ -153,15 +153,10 @@ class GSheetHelper {
         // final row = decoded['row'] as int? ?? 0;
       } else {
         print('⚠️ Failed with status ${res.statusCode}: ${res.body}');
-        html.window.console.log(
-          "⚠️ Failed with status ${res.statusCode}: ${res.body}",
-        );
       }
     } catch (e, stackTrace) {
       print('❌ Error when sending data: $e');
       print('StackTrace: $stackTrace');
-      html.window.console.log("❌ Error when sending data: $e");
-      html.window.console.log("StackTrace: $stackTrace");
     }
   }
 
