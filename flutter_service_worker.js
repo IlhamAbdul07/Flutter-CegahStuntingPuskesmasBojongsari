@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "df03130bb7797c72de345a545d43d675",
+const RESOURCES = {"flutter_bootstrap.js": "bde97ccaced5893991b03d2881d37413",
 "flutter.js": "83d881c1dbb6d6bcd6b42e274605b69c",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
@@ -21,17 +21,19 @@ const RESOURCES = {"flutter_bootstrap.js": "df03130bb7797c72de345a545d43d675",
 "canvaskit/skwasm.js.symbols": "9fe690d47b904d72c7d020bd303adf16",
 "canvaskit/canvaskit.wasm": "a37f2b0af4995714de856e21e882325c",
 "canvaskit/canvaskit.js.symbols": "27361387bc24144b46a745f1afe92b50",
-"main.dart.js": "ed67d932deea274e0c6c773df46f161a",
-"index.html": "2bca925d642d5c63ffc5bf293576a5d8",
-"/": "2bca925d642d5c63ffc5bf293576a5d8",
+"sqflite_sw.js": "da2a0b40e94a1ae7f17f418b8ea1db94",
+"main.dart.js": "8f158d5b61c631e21eda3635d2b94e38",
+"sqlite3.wasm": "c78938b24bbe18f20172a341bbd5fc92",
+"index.html": "de5b18c3cc700c4cd11422eb5c618243",
+"/": "de5b18c3cc700c4cd11422eb5c618243",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "825e75415ebd366b740bb49659d7a5c6",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
-"assets/NOTICES": "0488fda6fbaaae3416d9371e17c4b53f",
+"assets/NOTICES": "259e2df4d78b9fca36d4f1bb49c6e805",
 "assets/AssetManifest.json": "06a58fb8808f6cdf1a8c2060f805c2f1",
 "assets/AssetManifest.bin": "1f5c04d5e0d6d3d83bb2edf1a4cdc027",
 "assets/AssetManifest.bin.json": "a3f816ff8ade50063c4be95463e231b4",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
-"assets/fonts/MaterialIcons-Regular.otf": "1ca770c502519695750a8894b4f2f60a",
+"assets/fonts/MaterialIcons-Regular.otf": "cb415cde6792f27f20b7c098b9a7d30d",
 "assets/assets/logo.png": "c0c024cfee33fa502a03ec5d3c1f68d7",
 "assets/assets/siteIcon.png": "d17349bf198791f7bb58f16567d32461"};
 // The application shell files that are downloaded before a service worker can
