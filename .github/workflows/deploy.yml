@@ -20,6 +20,9 @@ jobs:
         with:
           flutter-version: '3.32.0'
 
+      - name: Update base href for GitHub Pages
+        run: sed -i 's|<base href="/">|<base href="/Flutter-CegahStuntingPuskesmasBojongsari/">|' web/index.html
+
       - name: Install dependencies
         run: flutter pub get
 
