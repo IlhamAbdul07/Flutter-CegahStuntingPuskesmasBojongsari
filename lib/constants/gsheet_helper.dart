@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:html' as html;
 // import 'package:stunting_web/constants/config.dart';
 import 'db_helper.dart';
 // import 'package:flutter/services.dart' show rootBundle;
@@ -151,10 +153,15 @@ class GSheetHelper {
         // final row = decoded['row'] as int? ?? 0;
       } else {
         print('⚠️ Failed with status ${res.statusCode}: ${res.body}');
+        html.window.console.log(
+          "⚠️ Failed with status ${res.statusCode}: ${res.body}",
+        );
       }
     } catch (e, stackTrace) {
       print('❌ Error when sending data: $e');
       print('StackTrace: $stackTrace');
+      html.window.console.log("❌ Error when sending data: $e");
+      html.window.console.log("StackTrace: $stackTrace");
     }
   }
 
