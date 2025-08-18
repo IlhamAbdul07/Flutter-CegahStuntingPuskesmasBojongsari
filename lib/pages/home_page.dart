@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
         await _clearLoginStatus();
         Future.delayed(Duration(milliseconds: 500), () {
           if (!mounted) return;
-          Navigator.pushReplacementNamed(context, '/login');
+          Navigator.pushReplacementNamed(context, '/');
         });
       } on Exception catch (e) {
         General.showSnackBar(context, "Failed Log Out: $e");

@@ -13,11 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cegah Stunting',
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => LoginPage(),
-        '/home': (context) => HomePage(),
-      },
+      initialRoute: '/',
+      routes: {'/': (context) => LoginPage(), '/home': (context) => HomePage()},
     );
   }
 }
