@@ -150,10 +150,6 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                   onPressed: () async {
                                     final data = formStunting.value;
 
-                                    if (widget.onSubmit != null) {
-                                      widget.onSubmit!(data);
-                                    }
-
                                     final tglNow = DateFormat(
                                       "yyyy-MM-dd HH:mm:ss",
                                     ).format(DateTime.now());
@@ -214,6 +210,11 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                       appsScriptApi,
                                       item,
                                     );
+
+                                    if (widget.onSubmit != null) {
+                                      widget.onSubmit!(item);
+                                    }
+
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                         content: Text("Data berhasil disimpan"),
