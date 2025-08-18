@@ -87200,7 +87200,7 @@ A.a_W.prototype={
 $0(){return A.fy(this.a,!1).mF(!0)},
 $S:0}
 A.Le.prototype={
-I(a){return new A.zu(A.R(["/login",new A.a8S(),"/home",new A.a8T()],t.N,t.Ab),"/login","Cegah Stunting",!1,null)}}
+I(a){return new A.zu(A.R(["/",new A.a8S(),"/home",new A.a8T()],t.N,t.Ab),"/","Cegah Stunting",!1,null)}}
 A.a8S.prototype={
 $1(a){return new A.pc(null)},
 $S:559}
@@ -87263,7 +87263,7 @@ A.al5.prototype={
 $0(){var s,r=this.a.c
 if(r==null)return
 r=A.fy(r,!1)
-s=r.xE("/login",null,t.X)
+s=r.xE("/",null,t.X)
 s.toString
 r.X2(s,null)},
 $S:25}
