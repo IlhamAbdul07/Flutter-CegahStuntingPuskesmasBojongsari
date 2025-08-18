@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stunting_web/constants/colors.dart';
 import 'package:data_table_2/data_table_2.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter/rendering.dart';
 
 class LaporanWidget extends StatefulWidget {
   const LaporanWidget({super.key});
@@ -24,11 +22,13 @@ class _LaporanWidgetState extends State<LaporanWidget> {
             children: [
               Container(
                 width: double.infinity,
-                height: 250.0,
+                height: 50.0,
                 color: CustomColor.greenMain,
-                child: Text(
-                  "INI LAPORAN PAGES",
-                  style: TextStyle(fontSize: 25),
+                child: Center(
+                  child: Text(
+                    "INI LAPORAN PAGES",
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
                 ),
               ),
               Container(
@@ -39,24 +39,46 @@ class _LaporanWidgetState extends State<LaporanWidget> {
                   padding: const EdgeInsets.all(16),
                   child: DataTable2(
                     columns: [
-                      DataColumn2(label: Text('Column A'), size: ColumnSize.L),
-                      DataColumn(label: Text('Column B')),
-                      DataColumn(label: Text('Column C')),
-                      DataColumn(label: Text('Column D')),
-                      DataColumn(label: Text('Column NUMBERS'), numeric: true),
+                      DataColumn2(label: Text('Tanggal'), size: ColumnSize.L),
+                      DataColumn(label: Text('Nama Anak')),
+                      DataColumn(label: Text('Jenis Kelamin')),
+                      DataColumn(label: Text('Usia Anak')),
+                      DataColumn(label: Text('Aksi'), numeric: true),
                     ],
-                    rows: List<DataRow>.generate(
-                      100,
-                      (index) => DataRow(
+                    rows: [
+                      DataRow(
                         cells: [
-                          DataCell(Text('A' * (10 - index % 10))),
-                          DataCell(Text('B' * (10 - (index + 5) % 10))),
-                          DataCell(Text('C' * (15 - (index + 5) % 10))),
-                          DataCell(Text('D' * (15 - (index + 10) % 10))),
-                          DataCell(Text(((index + 0.1) * 25.4).toString())),
+                          DataCell(Text('18 Agustus 2025')),
+                          DataCell(Text('Ilham')),
+                          DataCell(Text('Laki-Laki')),
+                          DataCell(Text('5 Tahun 6 Bulan')),
+                          DataCell(
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.visibility,
+                                    color: Colors.blue,
+                                  ),
+                                  tooltip: "Detail",
+                                  onPressed: () {
+                                    // aksi detail
+                                  },
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.delete, color: Colors.red),
+                                  tooltip: "Hapus",
+                                  onPressed: () {
+                                    // aksi hapus
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),

@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:stunting_web/constants/colors.dart';
 import 'package:flutter/services.dart';
+import 'package:stunting_web/constants/config.dart';
+import 'package:stunting_web/constants/gsheet_helper.dart';
 import 'package:stunting_web/widgets/forms/form_anak.dart';
 import 'package:stunting_web/widgets/forms/form_diri.dart';
 import 'package:stunting_web/widgets/forms/form_ibu.dart';
 import 'package:stunting_web/widgets/forms/form_survey.dart';
+// import 'package:stunting_web/widgets/hasil_survey.dart';
 
 class SurveyWidget extends StatefulWidget {
-  const SurveyWidget({super.key});
+  final Function(Map<String, dynamic>)? onSubmit;
+  const SurveyWidget({super.key, this.onSubmit});
 
   @override
   State<SurveyWidget> createState() => _SurveyWidgetState();
@@ -23,8 +28,8 @@ class _SurveyWidgetState extends State<SurveyWidget> {
         Validators.maxLength(50),
       ],
     ),
-    'tanggal_lahir': FormControl<DateTime>(validators: [Validators.required]),
     'jenis_kelamin': FormControl<String>(validators: [Validators.required]),
+    'tanggal_lahir': FormControl<DateTime>(validators: [Validators.required]),
     'berat_badan': FormControl<double>(),
     'tinggi_badan': FormControl<double>(),
     'lingkar_kepala': FormControl<double>(),
@@ -142,22 +147,90 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                       vertical: 16,
                                     ),
                                   ),
-                                  onPressed: () {
+                                  onPressed: () async {
                                     final data = formStunting.value;
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text("Sukses: $data")),
-                                    );
-                                    print("ini data: $data");
 
+                                    if (widget.onSubmit != null) {
+                                      widget.onSubmit!(data);
+                                    }
+
+                                    final tglNow = DateFormat(
+                                      "yyyy-MM-dd HH:mm:ss",
+                                    ).format(DateTime.now());
+
+                                    final DateFormat formatter = DateFormat(
+                                      'dd/MM/yyyy',
+                                    );
+                                    final tanggalLahir =
+                                        data['tanggal_lahir'] as DateTime?;
+
+                                    final item = {
+                                      "tgl": tglNow,
+                                      "nama": data['nama'],
+                                      "jenis_kelamin": data['jenis_kelamin'],
+                                      'tanggal_lahir': tanggalLahir != null
+                                          ? formatter.format(tanggalLahir)
+                                          : null,
+                                      "berat_badan": data['berat_badan'],
+                                      "tinggi_badan": data['tinggi_badan'],
+                                      "lingkar_kepala": data['lingkar_kepala'],
+                                      "lingkar_lengan": data['lingkar_lengan'],
+                                      "posisi_anak": data['posisi_anak'],
+                                      "ibu_hamil": data['ibu_hamil'],
+                                      "pendidikan_ibu": data['pendidikan_ibu'],
+                                      "kondisi_ekonomi":
+                                          data['kondisi_ekonomi'],
+                                      "pemeriksaan_rutin":
+                                          data['pemeriksaan_rutin'],
+                                      "istirahat": data['istirahat'],
+                                      "menghindari_rokok":
+                                          data['menghindari_rokok'],
+                                      "riwayat_penyakit":
+                                          data['riwayat_penyakit'],
+                                      "kesehatan_mental":
+                                          data['kesehatan_mental'],
+                                      "persalinan": data['persalinan'],
+                                      "layanan_kesehatan":
+                                          data['layanan_kesehatan'],
+                                      "asi": data['asi'],
+                                      "pendamping_asi": data['pendamping_asi'],
+                                      "kualitas_mpasi": data['kualitas_mpasi'],
+                                      "makan_anak": data['makan_anak'],
+                                      "pola_makan": data['pola_makan'],
+                                      "status_gizi": data['status_gizi'],
+                                      "riwayat_imunisasi":
+                                          data['riwayat_imunisasi'],
+                                      "kebersihan_lingkungan":
+                                          data['kebersihan_lingkungan'],
+                                      "kebersihan_diri":
+                                          data['kebersihan_diri'],
+                                      "olahraga": data['olahraga'],
+                                      "dukungan_keluarga":
+                                          data['dukungan_keluarga'],
+                                      "pola_asuh": data['pola_asuh'],
+                                    };
+
+                                    await GSheetHelper.pushItemToSheet(
+                                      appsScriptApi,
+                                      item,
+                                    );
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Data berhasil disimpan"),
+                                      ),
+                                    );
                                     // if (formStunting.valid) {
-                                    //   // final data = formStunting.value;
+                                    //   //ini kode jika valid
+                                    // } else {
                                     //   ScaffoldMessenger.of(
                                     //     context,
                                     //   ).showSnackBar(
-                                    //     SnackBar(content: Text("Sukses")),
+                                    //     const SnackBar(
+                                    //       content: Text(
+                                    //         "Isi data terlebih dahulu",
+                                    //       ),
+                                    //     ),
                                     //   );
-                                    // } else {
-                                    //   formStunting.markAllAsTouched();
                                     // }
                                   },
                                   child: const Text(

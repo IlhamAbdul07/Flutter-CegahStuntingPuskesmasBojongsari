@@ -7,6 +7,7 @@ import 'package:stunting_web/widgets/header.dart';
 import 'package:stunting_web/widgets/home_widget.dart';
 import 'package:stunting_web/widgets/laporan_widget.dart';
 import 'package:stunting_web/widgets/survey_widget.dart';
+import 'package:stunting_web/widgets/hasil_survey.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,19 +18,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
+  Map<String, dynamic>? surveyResult;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final List<Widget> pages = const [
-    HomeWidget(),
-    SurveyWidget(),
-    LaporanWidget(),
-    const Text("error"),
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   void confirmLogout() async {
     final confirm = await DialogItem.showDialogLogout(
@@ -43,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     if (confirm == true) {
       try {
         await _clearLoginStatus();
-        Future.delayed(Duration(milliseconds: 500), () {
+        Future.delayed(const Duration(milliseconds: 500), () {
           if (!mounted) return;
           Navigator.pushReplacementNamed(context, '/');
         });
@@ -77,10 +67,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      const HomeWidget(),
+      SurveyWidget(
+        onSubmit: (data) {
+          setState(() {
+            surveyResult = data;
+            currentIndex = 99; // pindah ke hasil survey
+          });
+        },
+      ),
+      const LaporanWidget(),
+      const Text("error"),
+      if (surveyResult != null) HasilSurvey(data: surveyResult!),
+    ];
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Header(
           onMenuTap: () {
             _scaffoldKey.currentState?.openEndDrawer();
@@ -88,7 +93,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       endDrawer: DrawerMenu(onMenuItemSelected: onMenuItemSelected),
-      body: IndexedStack(index: currentIndex, children: pages),
+      body: IndexedStack(index: _getIndexForStack(), children: pages),
     );
+  }
+
+  int _getIndexForStack() {
+    if (currentIndex == 99 && surveyResult != null) {
+      return 4; // posisi hasil survey di pages
+    }
+    return currentIndex;
   }
 }
