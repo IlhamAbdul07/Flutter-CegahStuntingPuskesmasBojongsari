@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stunting_web/constants/dialog_item.dart';
+import 'package:stunting_web/styles/style.dart';
 import 'package:stunting_web/widgets/drawer_menu.dart';
 import 'package:stunting_web/widgets/header.dart';
 import 'package:stunting_web/widgets/home_widget.dart';
@@ -14,32 +16,57 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Widget currentWidget;
+  int currentIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final List<Widget> pages = const [
+    HomeWidget(),
+    SurveyWidget(),
+    LaporanWidget(),
+    const Text("error"),
+  ];
 
   @override
   void initState() {
     super.initState();
-    currentWidget = HomeWidget();
+  }
+
+  void confirmLogout() async {
+    final confirm = await DialogItem.showDialogLogout(
+      context: context,
+      title: "Logout",
+      message: "Apakah Anda Yakin Ingin Keluar ?",
+      confirmButtonText: "Ya, Keluar",
+      cancelButtonText: "Batal",
+    );
+
+    if (confirm == true) {
+      try {
+        await _clearLoginStatus();
+        Future.delayed(Duration(milliseconds: 500), () {
+          if (!mounted) return;
+          Navigator.pushReplacementNamed(context, '/login');
+        });
+      } on Exception catch (e) {
+        General.showSnackBar(context, "Failed Log Out: $e");
+      }
+    }
   }
 
   void onMenuItemSelected(String menuName) {
-    setState(() {
-      if (menuName == 'Beranda') {
-        currentWidget = HomeWidget();
-      } else if (menuName == 'Survey') {
-        currentWidget = SurveyWidget();
-      } else if (menuName == 'Laporan') {
-        currentWidget = LaporanWidget();
-      } else if (menuName == 'Log Out') {
-        _clearLoginStatus();
-        Future.delayed(Duration(milliseconds: 500), () {
-          Navigator.pushReplacementNamed(context, '/login');
-        });
-      } else {
-        Text("error");
-      }
-    });
+    if (menuName == 'Beranda') {
+      setState(() => currentIndex = 0);
+    } else if (menuName == 'Survey') {
+      setState(() => currentIndex = 1);
+    } else if (menuName == 'Laporan') {
+      setState(() => currentIndex = 2);
+    } else if (menuName == 'Log Out') {
+      Future.delayed(const Duration(milliseconds: 200), () {
+        confirmLogout();
+      });
+    } else {
+      setState(() => currentIndex = 3);
+    }
   }
 
   Future<void> _clearLoginStatus() async {
@@ -61,7 +88,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       endDrawer: DrawerMenu(onMenuItemSelected: onMenuItemSelected),
-      body: currentWidget,
+      body: IndexedStack(index: currentIndex, children: pages),
     );
   }
 }

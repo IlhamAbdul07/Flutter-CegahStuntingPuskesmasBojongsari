@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stunting_web/pages/home_page.dart';
+import 'package:stunting_web/styles/style.dart';
 import 'package:stunting_web/widgets/login_card2.dart';
 
 class LoginPage extends StatefulWidget {
@@ -54,9 +55,8 @@ class _LoginPageState extends State<LoginPage> {
         if (_usernameController.text == 'admin' &&
             _passwordController.text == 'admin1234@') {
           _saveLoginStatus(); // Simpan status login
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(const SnackBar(content: Text('Login berhasil!')));
+          ScaffoldMessenger.of(context);
+          General.showSnackBar(context, 'Berhasil Login');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => HomePage()),

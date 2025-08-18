@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stunting_web/pages/home_page.dart';
 import 'package:stunting_web/pages/login_page.dart';
-// import 'package:stunting_web/pages/home_page.dart';
-// import 'package:stunting_web/pages/laporan_page.dart';
-// import 'package:stunting_web/pages/login_page.dart';
-// import 'package:stunting_web/pages/survey_page.dart';
 
 void main() {
   runApp(const MyApp());
