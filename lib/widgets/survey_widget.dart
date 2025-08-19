@@ -206,12 +206,14 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                       "pola_asuh": data['pola_asuh'],
                                     };
 
-                                    await GSheetHelper.pushItemToSheet(
-                                      appsScriptApi,
-                                      item,
-                                    );
+                                    final row =
+                                        await GSheetHelper.pushItemToSheet(
+                                          spreadsheetId,
+                                          item,
+                                        );
 
                                     if (widget.onSubmit != null) {
+                                      item['row'] = row;
                                       widget.onSubmit!(item);
                                     }
 

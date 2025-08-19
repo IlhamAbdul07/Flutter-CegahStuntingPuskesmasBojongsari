@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
         onSubmit: (data) {
           setState(() {
             surveyResult = data;
-            currentIndex = 99; // pindah ke hasil survey
+            currentIndex = 99;
           });
         },
       ),
