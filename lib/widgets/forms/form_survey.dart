@@ -11,7 +11,7 @@ class FormSurvey extends StatelessWidget {
       children: [
         const Text(
           "Kualitas MPASI",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu membuat MPASI sendiri atau membeli makanan instan?",
@@ -20,7 +20,7 @@ class FormSurvey extends StatelessWidget {
           formControlName: 'kualitas_mpasi',
           options: [
             {'value': 'Instan', 'label': 'Instan'},
-            {'value': 'Anak Campuran', 'label': 'Anak Campuran'},
+            {'value': 'Campuran', 'label': 'Campuran'},
             {'value': 'Buatan sendiri', 'label': 'Buatan sendiri'},
           ],
         ),
@@ -28,7 +28,7 @@ class FormSurvey extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Pemberian Makan Anak",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Seberapa sering Ibu memberi makan anak dalam sehari?"),
         ReactiveRadioGroup<String>(
@@ -36,14 +36,14 @@ class FormSurvey extends StatelessWidget {
           options: [
             {'value': '< 3 kali / hari', 'label': '< 3 kali / hari'},
             {'value': '3 - 5 kali / hari', 'label': '3 - 5 kali / hari'},
-            {'value': '> 5 kali / hari', 'label': '> 35 ta> 5 kali / hari'},
+            {'value': '> 5 kali / hari', 'label': '> 5 kali / hari'},
           ],
         ),
 
         const SizedBox(height: 24),
         const Text(
           "Pola Makan Sehat",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu mengatur pola makan keluarga dengan memperhatikan gizi seimbang?",
@@ -63,7 +63,7 @@ class FormSurvey extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Status Gizi Ibu Hamil",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu rutin mengonsumsi suplemen zat besi atau vitamin dari puskesmas?",
@@ -80,7 +80,7 @@ class FormSurvey extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Riwayat Imunisasi",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah anak Ibu sudah mendapatkan imunisasi dasar lengkap?",
@@ -97,7 +97,7 @@ class FormSurvey extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Kebersihan Lingkungan",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Seberapa sering Ibu membersihkan rumah dan apakah rumah Ibu memiliki saluran pembuangan serta tempat sampah yang layak?",
@@ -113,8 +113,8 @@ class FormSurvey extends StatelessWidget {
 
         const SizedBox(height: 24),
         const Text(
-          " Kebersihan Diri",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          "Kebersihan Diri",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu rutin mencuci tangan sebelum makan dan setelah dari toilet?",
@@ -129,7 +129,10 @@ class FormSurvey extends StatelessWidget {
         ),
 
         const SizedBox(height: 24),
-        const Text("Olahraga", style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text(
+          "Olahraga",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         const Text(
           "Apakah Ibu memiliki waktu untuk melakukan aktivitas fisik atau olahraga ringan?",
         ),
@@ -145,7 +148,7 @@ class FormSurvey extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Dukungan Keluarga",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu mendapatkan dukungan dari keluarga dalam mengasuh anak?",
@@ -160,7 +163,10 @@ class FormSurvey extends StatelessWidget {
         ),
 
         const SizedBox(height: 24),
-        const Text(" Pola Asuh", style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text(
+          "Pola Asuh",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         const Text("Bagaimana pola pengasuhan ibu terhadap anak?"),
         ReactiveRadioGroup<String>(
           formControlName: 'pola_asuh',

@@ -115,6 +115,11 @@ class LoginCard2 extends StatelessWidget {
                         validator: (value) => value == null || value.isEmpty
                             ? 'Masukkan Password'
                             : null,
+                        onFieldSubmitted: (_) {
+                          if (formKey.currentState!.validate()) {
+                            onLogin();
+                          }
+                        },
                       ),
                       const SizedBox(height: 20),
 

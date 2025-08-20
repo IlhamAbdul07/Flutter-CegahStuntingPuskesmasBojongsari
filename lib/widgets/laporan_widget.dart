@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stunting_web/constants/colors.dart';
 import 'package:data_table_2/data_table_2.dart';
+import 'package:stunting_web/constants/config.dart';
+import 'package:stunting_web/constants/gsheet_helper.dart';
 
 class LaporanWidget extends StatefulWidget {
   const LaporanWidget({super.key});
@@ -35,51 +37,84 @@ class _LaporanWidgetState extends State<LaporanWidget> {
                 width: double.infinity,
                 height: 450.0,
                 color: CustomColor.bgSecondary,
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: DataTable2(
-                    columns: [
-                      DataColumn2(label: Text('Tanggal'), size: ColumnSize.L),
-                      DataColumn(label: Text('Nama Anak')),
-                      DataColumn(label: Text('Jenis Kelamin')),
-                      DataColumn(label: Text('Usia Anak')),
-                      DataColumn(label: Text('Aksi'), numeric: true),
-                    ],
-                    rows: [
-                      DataRow(
-                        cells: [
-                          DataCell(Text('18 Agustus 2025')),
-                          DataCell(Text('Ilham')),
-                          DataCell(Text('Laki-Laki')),
-                          DataCell(Text('5 Tahun 6 Bulan')),
-                          DataCell(
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  icon: Icon(
-                                    Icons.visibility,
-                                    color: Colors.blue,
-                                  ),
-                                  tooltip: "Detail",
-                                  onPressed: () {
-                                    // aksi detail
-                                  },
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.delete, color: Colors.red),
-                                  tooltip: "Hapus",
-                                  onPressed: () {
-                                    // aksi hapus
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                child: FutureBuilder<List<Map<String, dynamic>>>(
+                  future: GSheetHelper.fetchFromSheet(
+                    spreadsheetId: spreadsheetId,
+                    apiKey: gsheetApiKey,
                   ),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(child: Text("Error: ${snapshot.error}"));
+                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return const Center(child: Text("Tidak ada data"));
+                    }
+
+                    final data = snapshot.data!;
+
+                    return DataTable2(
+                      columns: const [
+                        DataColumn2(
+                          label: Text('Tanggal Survey'),
+                          size: ColumnSize.L,
+                        ),
+                        DataColumn(label: Text('Nama')),
+                        DataColumn(label: Text('Jenis Kelamin')),
+                        DataColumn(label: Text('Usia')),
+                        DataColumn(label: Text('Aksi'), numeric: true),
+                      ],
+                      rows: data.map((item) {
+                        return DataRow(
+                          cells: [
+                            DataCell(Text(item['tgl'] ?? '')),
+                            DataCell(Text(item['nama'] ?? '')),
+                            DataCell(Text(item['jenis_kelamin'] ?? '')),
+                            DataCell(Text(item['usia'] ?? '')),
+                            DataCell(
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.visibility,
+                                      color: Colors.blue,
+                                    ),
+                                    tooltip: "Detail",
+                                    onPressed: () {
+                                      // aksi detail
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    ),
+                                    tooltip: "Hapus",
+                                    onPressed: () async {
+                                      await GSheetHelper.clearItemFromSheet(
+                                        spreadsheetId,
+                                        item['row'] ?? 100,
+                                      );
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            "Data berhasil dihapus",
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
+                    );
+                  },
                 ),
               ),
             ],

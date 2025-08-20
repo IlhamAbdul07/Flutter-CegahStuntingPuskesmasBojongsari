@@ -20,6 +20,7 @@ class SurveyWidget extends StatefulWidget {
 }
 
 class _SurveyWidgetState extends State<SurveyWidget> {
+  bool _isLoading = false;
   final formStunting = FormGroup({
     'nama': FormControl<String>(
       validators: [
@@ -30,10 +31,10 @@ class _SurveyWidgetState extends State<SurveyWidget> {
     ),
     'jenis_kelamin': FormControl<String>(validators: [Validators.required]),
     'tanggal_lahir': FormControl<DateTime>(validators: [Validators.required]),
-    'berat_badan': FormControl<double>(),
-    'tinggi_badan': FormControl<double>(),
-    'lingkar_kepala': FormControl<double>(),
-    'lingkar_lengan': FormControl<double>(),
+    'berat_badan': FormControl<double>(validators: [Validators.required]),
+    'tinggi_badan': FormControl<double>(validators: [Validators.required]),
+    'lingkar_kepala': FormControl<double>(validators: [Validators.required]),
+    'lingkar_lengan': FormControl<double>(validators: [Validators.required]),
     'posisi_anak': FormControl<String>(validators: [Validators.required]),
     'ibu_hamil': FormControl<String>(validators: [Validators.required]),
     'pendidikan_ibu': FormControl<String>(validators: [Validators.required]),
@@ -139,7 +140,8 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                             // Tombol submit
                             Center(
                               child: SizedBox(
-                                width: 500,
+                                width: 250,
+                                height: 50,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: CustomColor.bluePrimary,
@@ -147,99 +149,158 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                       vertical: 16,
                                     ),
                                   ),
-                                  onPressed: () async {
-                                    final data = formStunting.value;
+                                  onPressed: _isLoading
+                                      ? null // disable tombol saat loading
+                                      : () async {
+                                          final data = formStunting.value;
+                                          debugPrint('ini data: $data');
+                                          if (formStunting.valid) {
+                                            setState(
+                                              () => _isLoading = true,
+                                            ); // start loading
 
-                                    final tglNow = DateFormat(
-                                      "yyyy-MM-dd HH:mm:ss",
-                                    ).format(DateTime.now());
+                                            try {
+                                              final data = formStunting.value;
 
-                                    final DateFormat formatter = DateFormat(
-                                      'dd/MM/yyyy',
-                                    );
-                                    final tanggalLahir =
-                                        data['tanggal_lahir'] as DateTime?;
+                                              final tglNow = DateFormat(
+                                                "yyyy-MM-dd HH:mm:ss",
+                                              ).format(DateTime.now());
 
-                                    final item = {
-                                      "tgl": tglNow,
-                                      "nama": data['nama'],
-                                      "jenis_kelamin": data['jenis_kelamin'],
-                                      'tanggal_lahir': tanggalLahir != null
-                                          ? formatter.format(tanggalLahir)
-                                          : null,
-                                      "berat_badan": data['berat_badan'],
-                                      "tinggi_badan": data['tinggi_badan'],
-                                      "lingkar_kepala": data['lingkar_kepala'],
-                                      "lingkar_lengan": data['lingkar_lengan'],
-                                      "posisi_anak": data['posisi_anak'],
-                                      "ibu_hamil": data['ibu_hamil'],
-                                      "pendidikan_ibu": data['pendidikan_ibu'],
-                                      "kondisi_ekonomi":
-                                          data['kondisi_ekonomi'],
-                                      "pemeriksaan_rutin":
-                                          data['pemeriksaan_rutin'],
-                                      "istirahat": data['istirahat'],
-                                      "menghindari_rokok":
-                                          data['menghindari_rokok'],
-                                      "riwayat_penyakit":
-                                          data['riwayat_penyakit'],
-                                      "kesehatan_mental":
-                                          data['kesehatan_mental'],
-                                      "persalinan": data['persalinan'],
-                                      "layanan_kesehatan":
-                                          data['layanan_kesehatan'],
-                                      "asi": data['asi'],
-                                      "pendamping_asi": data['pendamping_asi'],
-                                      "kualitas_mpasi": data['kualitas_mpasi'],
-                                      "makan_anak": data['makan_anak'],
-                                      "pola_makan": data['pola_makan'],
-                                      "status_gizi": data['status_gizi'],
-                                      "riwayat_imunisasi":
-                                          data['riwayat_imunisasi'],
-                                      "kebersihan_lingkungan":
-                                          data['kebersihan_lingkungan'],
-                                      "kebersihan_diri":
-                                          data['kebersihan_diri'],
-                                      "olahraga": data['olahraga'],
-                                      "dukungan_keluarga":
-                                          data['dukungan_keluarga'],
-                                      "pola_asuh": data['pola_asuh'],
-                                    };
+                                              final DateFormat formatter =
+                                                  DateFormat('dd/MM/yyyy');
+                                              final tanggalLahir =
+                                                  data['tanggal_lahir']
+                                                      as DateTime?;
 
-                                    final row =
-                                        await GSheetHelper.pushItemToSheet(
-                                          spreadsheetId,
-                                          item,
-                                        );
+                                              final item = {
+                                                "tgl": tglNow,
+                                                "nama": data['nama'],
+                                                "jenis_kelamin":
+                                                    data['jenis_kelamin'],
+                                                'tanggal_lahir':
+                                                    tanggalLahir != null
+                                                    ? formatter.format(
+                                                        tanggalLahir,
+                                                      )
+                                                    : null,
+                                                "berat_badan":
+                                                    data['berat_badan'],
+                                                "tinggi_badan":
+                                                    data['tinggi_badan'],
+                                                "lingkar_kepala":
+                                                    data['lingkar_kepala'],
+                                                "lingkar_lengan":
+                                                    data['lingkar_lengan'],
+                                                "posisi_anak":
+                                                    data['posisi_anak'],
+                                                "ibu_hamil": data['ibu_hamil'],
+                                                "pendidikan_ibu":
+                                                    data['pendidikan_ibu'],
+                                                "kondisi_ekonomi":
+                                                    data['kondisi_ekonomi'],
+                                                "pemeriksaan_rutin":
+                                                    data['pemeriksaan_rutin'],
+                                                "istirahat": data['istirahat'],
+                                                "menghindari_rokok":
+                                                    data['menghindari_rokok'],
+                                                "riwayat_penyakit":
+                                                    data['riwayat_penyakit'],
+                                                "kesehatan_mental":
+                                                    data['kesehatan_mental'],
+                                                "persalinan":
+                                                    data['persalinan'],
+                                                "layanan_kesehatan":
+                                                    data['layanan_kesehatan'],
+                                                "asi": data['asi'],
+                                                "pendamping_asi":
+                                                    data['pendamping_asi'],
+                                                "kualitas_mpasi":
+                                                    data['kualitas_mpasi'],
+                                                "makan_anak":
+                                                    data['makan_anak'],
+                                                "pola_makan":
+                                                    data['pola_makan'],
+                                                "status_gizi":
+                                                    data['status_gizi'],
+                                                "riwayat_imunisasi":
+                                                    data['riwayat_imunisasi'],
+                                                "kebersihan_lingkungan":
+                                                    data['kebersihan_lingkungan'],
+                                                "kebersihan_diri":
+                                                    data['kebersihan_diri'],
+                                                "olahraga": data['olahraga'],
+                                                "dukungan_keluarga":
+                                                    data['dukungan_keluarga'],
+                                                "pola_asuh": data['pola_asuh'],
+                                              };
 
-                                    if (widget.onSubmit != null) {
-                                      item['row'] = row;
-                                      widget.onSubmit!(item);
-                                    }
+                                              final row =
+                                                  await GSheetHelper.pushItemToSheet(
+                                                    spreadsheetId,
+                                                    item,
+                                                  );
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text("Data berhasil disimpan"),
-                                      ),
-                                    );
-                                    // if (formStunting.valid) {
-                                    //   //ini kode jika valid
-                                    // } else {
-                                    //   ScaffoldMessenger.of(
-                                    //     context,
-                                    //   ).showSnackBar(
-                                    //     const SnackBar(
-                                    //       content: Text(
-                                    //         "Isi data terlebih dahulu",
-                                    //       ),
-                                    //     ),
-                                    //   );
-                                    // }
-                                  },
-                                  child: const Text(
-                                    "Simpan",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
+                                              if (widget.onSubmit != null) {
+                                                item['row'] = row;
+                                                widget.onSubmit!(item);
+                                              }
+
+                                              formStunting.reset();
+
+                                              ScaffoldMessenger.of(
+                                                context,
+                                              ).showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                    "Data berhasil disimpan",
+                                                  ),
+                                                ),
+                                              );
+                                            } catch (e) {
+                                              ScaffoldMessenger.of(
+                                                context,
+                                              ).showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    "Gagal menyimpan: $e",
+                                                  ),
+                                                ),
+                                              );
+                                            } finally {
+                                              setState(
+                                                () => _isLoading = false,
+                                              ); // stop loading
+                                            }
+                                          } else {
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              const SnackBar(
+                                                content: Text(
+                                                  "Isi data terlebih dahulu",
+                                                ),
+                                              ),
+                                            );
+                                            formStunting.markAllAsTouched();
+                                          }
+                                        },
+                                  child: _isLoading
+                                      ? const SizedBox(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator(
+                                            color: Colors.white,
+                                            strokeWidth: 2,
+                                          ),
+                                        )
+                                      : const Text(
+                                          "Simpan",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
                                 ),
                               ),
                             ),

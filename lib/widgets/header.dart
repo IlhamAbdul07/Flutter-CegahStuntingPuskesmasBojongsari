@@ -13,7 +13,7 @@ class Header extends StatelessWidget {
       child: Row(
         children: [
           // SiteLogo(onTap: onLogoTap),
-          Image.asset('assets/siteIcon.png', width: 100, height: 100),
+          Image.asset('assets/logo.png', width: 100, height: 100),
           Text(
             'Pusekesmas Bojong Sari',
             style: TextStyle(

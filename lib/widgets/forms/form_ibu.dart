@@ -11,7 +11,7 @@ class FormIbu extends StatelessWidget {
       children: [
         const Text(
           "Posisi Anak Dalam Keluarga",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Anak ke berapa dalam keluarga ini?"),
         ReactiveRadioGroup<String>(
@@ -29,7 +29,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Usia Ibu Saat Kehamilan",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Saat usia berapa ibu hamil anak ini?"),
         ReactiveRadioGroup<String>(
@@ -44,7 +44,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Pendidikan Ibu",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Apa pendidikan terakhir ibu?"),
         ReactiveRadioGroup<String>(
@@ -59,7 +59,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Kondisi Ekonomi",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Berapa rata-rata penghasilan keluarga per bulan?"),
         ReactiveRadioGroup<String>(
@@ -74,7 +74,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Pemeriksaan Rutin",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Berapa kali Ibu memeriksakan kehamilan selama masa mengandung?",
@@ -89,7 +89,10 @@ class FormIbu extends StatelessWidget {
         ),
 
         const SizedBox(height: 24),
-        const Text("Istirahat", style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text(
+          "Istirahat",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         const Text(
           "Apakah Ibu merasa cukup istirahat selama masa kehamilan atau setelah melahirkan?",
         ),
@@ -105,7 +108,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Menghindari Rokok",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu atau anggota keluarga lain merokok di dalam rumah?",
@@ -121,8 +124,25 @@ class FormIbu extends StatelessWidget {
 
         const SizedBox(height: 24),
         const Text(
+          "Riwayat Penyakit",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
+        const Text(
+          "Apakah Ibu memiliki riwayat penyakit seperti hipertensi, anemia, atau diabetes?",
+        ),
+        ReactiveRadioGroup<String>(
+          formControlName: 'riwayat_penyakit',
+          options: [
+            {'value': 'Ada penyakit kronis', 'label': 'Ada penyakit kronis'},
+            {'value': 'Pernah sakit ringan', 'label': 'Pernah sakit ringan'},
+            {'value': 'Sehat', 'label': 'Sehat'},
+          ],
+        ),
+
+        const SizedBox(height: 24),
+        const Text(
           "Kesehatan Mental",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah Ibu pernah merasa stres berlebihan selama kehamilan atau setelah melahirkan?",
@@ -137,7 +157,10 @@ class FormIbu extends StatelessWidget {
         ),
 
         const SizedBox(height: 24),
-        const Text("Persalinan", style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text(
+          "Persalinan",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         const Text(
           "Di mana Ibu melahirkan anak terakhir? Siapa yang membantu proses persalinan Ibu (bidan, dokter, dukun bayi)?",
         ),
@@ -153,7 +176,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Layanan Kesehatan",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
           "Apakah ibu dan keluarga memiliki jaminan kesehatan seperti BPJS?",
@@ -168,7 +191,10 @@ class FormIbu extends StatelessWidget {
         ),
 
         const SizedBox(height: 24),
-        const Text("ASI", style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text(
+          "ASI",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         const Text(
           "Apakah Ibu memberikan ASI eksklusif selama 6 bulan pertama?",
         ),
@@ -184,7 +210,7 @@ class FormIbu extends StatelessWidget {
         const SizedBox(height: 24),
         const Text(
           "Makanan Pendamping ASI",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Kapan Ibu mulai memberikan MPASI kepada anak?"),
         ReactiveRadioGroup<String>(

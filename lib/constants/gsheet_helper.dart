@@ -1,15 +1,26 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:stunting_web/constants/config.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:googleapis/sheets/v4.dart';
 import 'package:googleapis_auth/auth_io.dart';
 
 class GSheetHelper {
   static Future<SheetsApi> getSheetsApi() async {
-    final credentialsJson = await rootBundle.loadString(
-      'assets/credentials.json',
+    // get credentials service account from spreadsheet
+    final range = "'WHO_DATA'!U2";
+    final url = Uri.parse(
+      'https://sheets.googleapis.com/v4/spreadsheets/$spreadsheetId/values/$range?key=$gsheetApiKey',
     );
+    var credentialsJson = "";
+    final resCredential = await http.get(url);
+    if (resCredential.statusCode == 200) {
+      final decoded = jsonDecode(resCredential.body);
+      final rows = decoded['values'] as List<dynamic>? ?? [];
+      for (var i = 0; i < rows.length; i++) {
+        final row = rows[i] as List<dynamic>;
+        credentialsJson = (row.isNotEmpty) ? row[0].toString() : '';
+      }
+    }
     final credentials = ServiceAccountCredentials.fromJson(
       json.decode(credentialsJson),
     );
