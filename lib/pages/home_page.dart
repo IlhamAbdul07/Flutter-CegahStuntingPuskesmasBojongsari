@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  Map<String, dynamic>? surveyResult;
+  int? surveyResult;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void confirmLogout() async {
@@ -70,16 +70,24 @@ class _HomePageState extends State<HomePage> {
     final List<Widget> pages = [
       const HomeWidget(),
       SurveyWidget(
-        onSubmit: (data) {
+        onSubmit: (row) {
           setState(() {
-            surveyResult = data;
+            surveyResult = row;
             currentIndex = 99;
           });
         },
       ),
-      const LaporanWidget(),
+      LaporanWidget(
+        onSubmit: (row) {
+          setState(() {
+            surveyResult = row;
+            currentIndex = 99;
+          });
+        },
+      ),
+
       const Text("error"),
-      if (surveyResult != null) HasilSurvey(data: surveyResult!),
+      if (surveyResult != null) HasilSurvey(row: surveyResult!),
     ];
 
     return Scaffold(
@@ -99,7 +107,7 @@ class _HomePageState extends State<HomePage> {
 
   int _getIndexForStack() {
     if (currentIndex == 99 && surveyResult != null) {
-      return 4; // posisi hasil survey di pages
+      return 4;
     }
     return currentIndex;
   }

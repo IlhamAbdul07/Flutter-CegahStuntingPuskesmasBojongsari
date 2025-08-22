@@ -12,7 +12,7 @@ import 'package:stunting_web/widgets/forms/form_survey.dart';
 // import 'package:stunting_web/widgets/hasil_survey.dart';
 
 class SurveyWidget extends StatefulWidget {
-  final Function(Map<String, dynamic>)? onSubmit;
+  final Function(int)? onSubmit;
   const SurveyWidget({super.key, this.onSubmit});
 
   @override
@@ -31,10 +31,10 @@ class _SurveyWidgetState extends State<SurveyWidget> {
     ),
     'jenis_kelamin': FormControl<String>(validators: [Validators.required]),
     'tanggal_lahir': FormControl<DateTime>(validators: [Validators.required]),
-    'berat_badan': FormControl<double>(validators: [Validators.required]),
-    'tinggi_badan': FormControl<double>(validators: [Validators.required]),
-    'lingkar_kepala': FormControl<double>(validators: [Validators.required]),
-    'lingkar_lengan': FormControl<double>(validators: [Validators.required]),
+    'berat_badan': FormControl<String>(validators: [Validators.required]),
+    'tinggi_badan': FormControl<String>(validators: [Validators.required]),
+    'lingkar_kepala': FormControl<String>(validators: [Validators.required]),
+    'lingkar_lengan': FormControl<String>(validators: [Validators.required]),
     'posisi_anak': FormControl<String>(validators: [Validators.required]),
     'ibu_hamil': FormControl<String>(validators: [Validators.required]),
     'pendidikan_ibu': FormControl<String>(validators: [Validators.required]),
@@ -150,10 +150,8 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                     ),
                                   ),
                                   onPressed: _isLoading
-                                      ? null // disable tombol saat loading
+                                      ? null
                                       : () async {
-                                          final data = formStunting.value;
-                                          debugPrint('ini data: $data');
                                           if (formStunting.valid) {
                                             setState(
                                               () => _isLoading = true,
@@ -163,7 +161,7 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                               final data = formStunting.value;
 
                                               final tglNow = DateFormat(
-                                                "yyyy-MM-dd HH:mm:ss",
+                                                "dd/MM/yyyy HH:mm:ss",
                                               ).format(DateTime.now());
 
                                               final DateFormat formatter =
@@ -241,8 +239,7 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                                                   );
 
                                               if (widget.onSubmit != null) {
-                                                item['row'] = row;
-                                                widget.onSubmit!(item);
+                                                widget.onSubmit!(row!);
                                               }
 
                                               formStunting.reset();

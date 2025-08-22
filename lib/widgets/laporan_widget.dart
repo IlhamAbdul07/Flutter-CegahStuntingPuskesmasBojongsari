@@ -3,15 +3,41 @@ import 'package:stunting_web/constants/colors.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:stunting_web/constants/config.dart';
 import 'package:stunting_web/constants/gsheet_helper.dart';
+import 'package:stunting_web/constants/dialog_item.dart';
+import 'package:stunting_web/styles/style.dart';
 
 class LaporanWidget extends StatefulWidget {
-  const LaporanWidget({super.key});
+  final Function(int)? onSubmit;
+  const LaporanWidget({super.key, this.onSubmit});
 
   @override
   State<LaporanWidget> createState() => _LaporanWidgetState();
 }
 
 class _LaporanWidgetState extends State<LaporanWidget> {
+  bool isLoading = false;
+  void confirmDelete(int row) async {
+    final confirm = await DialogItem.showDialogLogout(
+      context: context,
+      title: "Hapus Data",
+      message: "Apakah Anda Yakin Ingin Menghapus Data Ini ?",
+      confirmButtonText: "Ya, Hapus",
+      cancelButtonText: "Batal",
+    );
+
+    if (confirm == true) {
+      setState(() => isLoading = true);
+      try {
+        await GSheetHelper.clearItemFromSheet(spreadsheetId, row);
+        General.showSnackBar(context, "Data Berhasil Dihapus");
+      } on Exception catch (e) {
+        General.showSnackBar(context, "Failed Delete: $e");
+      } finally {
+        setState(() => isLoading = false);
+      }
+    }
+  }
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -19,105 +45,177 @@ class _LaporanWidgetState extends State<LaporanWidget> {
       builder: (context, constraints) {
         return Scaffold(
           key: _scaffoldKey,
-          body: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 50.0,
-                color: CustomColor.greenMain,
-                child: Center(
-                  child: Text(
-                    "INI LAPORAN PAGES",
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+          body: Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: CustomColor.greenMain,
+            child: ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 50.0,
+                  color: CustomColor.greenMain,
+                  child: Center(
+                    child: Text(
+                      "Laporan Rekap Stunting",
+                      style: TextStyle(
+                        fontSize: constraints.maxWidth * 0.025,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 450.0,
-                color: CustomColor.bgSecondary,
-                child: FutureBuilder<List<Map<String, dynamic>>>(
-                  future: GSheetHelper.fetchFromSheet(
-                    spreadsheetId: spreadsheetId,
-                    apiKey: gsheetApiKey,
+                const SizedBox(height: 20),
+
+                // Box untuk tabel
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white, // box putih
+                    borderRadius: BorderRadius.circular(16), // radius sudut
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasError) {
-                      return Center(child: Text("Error: ${snapshot.error}"));
-                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return const Center(child: Text("Tidak ada data"));
-                    }
+                  child: SizedBox(
+                    height: 450,
+                    child: FutureBuilder<List<Map<String, dynamic>>>(
+                      future: GSheetHelper.fetchFromSheet(
+                        spreadsheetId: spreadsheetId,
+                        apiKey: gsheetApiKey,
+                      ),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else if (snapshot.hasError) {
+                          return Center(
+                            child: Text("Error: ${snapshot.error}"),
+                          );
+                        } else if (!snapshot.hasData ||
+                            snapshot.data!.isEmpty) {
+                          return const Center(child: Text("Tidak ada data"));
+                        }
 
-                    final data = snapshot.data!;
+                        final data = snapshot.data!;
 
-                    return DataTable2(
-                      columns: const [
-                        DataColumn2(
-                          label: Text('Tanggal Survey'),
-                          size: ColumnSize.L,
-                        ),
-                        DataColumn(label: Text('Nama')),
-                        DataColumn(label: Text('Jenis Kelamin')),
-                        DataColumn(label: Text('Usia')),
-                        DataColumn(label: Text('Aksi'), numeric: true),
-                      ],
-                      rows: data.map((item) {
-                        return DataRow(
-                          cells: [
-                            DataCell(Text(item['tgl'] ?? '')),
-                            DataCell(Text(item['nama'] ?? '')),
-                            DataCell(Text(item['jenis_kelamin'] ?? '')),
-                            DataCell(Text(item['usia'] ?? '')),
-                            DataCell(
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                    icon: const Icon(
-                                      Icons.visibility,
-                                      color: Colors.blue,
-                                    ),
-                                    tooltip: "Detail",
-                                    onPressed: () {
-                                      // aksi detail
-                                    },
+                        return DataTable2(
+                          columns: const [
+                            DataColumn2(
+                              label: Center(
+                                child: Text(
+                                  'Tanggal Survey',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
                                   ),
-                                  IconButton(
-                                    icon: const Icon(
-                                      Icons.delete,
-                                      color: Colors.red,
-                                    ),
-                                    tooltip: "Hapus",
-                                    onPressed: () async {
-                                      await GSheetHelper.clearItemFromSheet(
-                                        spreadsheetId,
-                                        item['row'] ?? 100,
-                                      );
-                                      ScaffoldMessenger.of(
-                                        context,
-                                      ).showSnackBar(
-                                        const SnackBar(
-                                          content: Text(
-                                            "Data berhasil dihapus",
-                                          ),
-                                        ),
-                                      );
-                                    },
+                                ),
+                              ),
+                              size: ColumnSize.L,
+                            ),
+                            DataColumn(
+                              label: Center(
+                                child: Text(
+                                  'Nama',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
                                   ),
-                                ],
+                                ),
                               ),
                             ),
+                            DataColumn(
+                              label: Center(
+                                child: Text(
+                                  'Jenis Kelamin',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Center(
+                                child: Text(
+                                  'Usia',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Center(
+                                child: Text(
+                                  'Aksi',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              numeric: true,
+                            ),
                           ],
+                          rows: data.map((item) {
+                            return DataRow(
+                              cells: [
+                                DataCell(Text(item['tgl'] ?? '')),
+                                DataCell(Text(item['nama'] ?? '')),
+                                DataCell(Text(item['jenis_kelamin'] ?? '')),
+                                DataCell(Text(item['usia'] ?? '')),
+                                DataCell(
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(
+                                          Icons.visibility,
+                                          color: Colors.blue,
+                                        ),
+                                        tooltip: "Detail",
+                                        onPressed: () {
+                                          if (widget.onSubmit != null) {
+                                            widget.onSubmit!(item['row']);
+                                          }
+                                        },
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(
+                                          Icons.delete,
+                                          color: Colors.red,
+                                        ),
+                                        tooltip: "Hapus",
+                                        onPressed: isLoading
+                                            ? null
+                                            : () async {
+                                                confirmDelete(item['row']);
+                                              },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          }).toList(),
                         );
-                      }).toList(),
-                    );
-                  },
+                      },
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

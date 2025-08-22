@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Future.delayed(const Duration(seconds: 1), () {
         if (_usernameController.text == 'admin' &&
-            _passwordController.text == 'admin1234@') {
+            _passwordController.text == '123') {
           _saveLoginStatus(); // Simpan status login
           ScaffoldMessenger.of(context);
           General.showSnackBar(context, 'Berhasil Login');

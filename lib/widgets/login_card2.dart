@@ -51,6 +51,14 @@ class LoginCard2 extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
+                      Text(
+                        'Data Stunting Puskesmas Bojong Sari',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                       const SizedBox(height: 20),
                       SizedBox(
                         width: double.infinity,
@@ -139,20 +147,6 @@ class LoginCard2 extends StatelessWidget {
                               'Masuk',
                               style: TextStyle(fontSize: 20),
                             ),
-                          ),
-                        ),
-                      ),
-
-                      const SizedBox(height: 10),
-                      GestureDetector(
-                        onTap: () {
-                          // TODO: reset password
-                        },
-                        child: const Text(
-                          'Lupa Password?',
-                          style: TextStyle(
-                            color: CustomColor.bluePrimary,
-                            fontSize: 16,
                           ),
                         ),
                       ),

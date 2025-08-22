@@ -19,6 +19,11 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.0'
+      
+      - name: Update API Key
+        run: |
+          sed -i.bak "s|final gsheetApiKey = .*;|final gsheetApiKey = '${{ secrets.API_KEY }}';|" lib/constants/config.dart
+        shell: bash
 
       - name: Install dependencies
         run: flutter pub get
