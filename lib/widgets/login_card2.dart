@@ -52,7 +52,7 @@ class LoginCard2 extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Data Stunting Puskesmas Bojong Sari',
+                        'Data Stunting Puskesmas Bojongsari',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

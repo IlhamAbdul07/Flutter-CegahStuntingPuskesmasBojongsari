@@ -110,7 +110,7 @@ class _SurveyWidgetState extends State<SurveyWidget> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              "Form Survey Stunting",
+                              "Form Deteksi Stunting",
                               style: Theme.of(context).textTheme.titleLarge
                                   ?.copyWith(
                                     color: Colors.white,

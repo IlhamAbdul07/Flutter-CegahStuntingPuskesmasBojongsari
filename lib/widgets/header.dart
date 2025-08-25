@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
           // SiteLogo(onTap: onLogoTap),
           Image.asset('assets/logo.png', width: 100, height: 100),
           Text(
-            'Pusekesmas Bojong Sari',
+            'Puskesmas Bojongsari',
             style: TextStyle(
               fontWeight: FontWeight.w300,
               color: Colors.white,

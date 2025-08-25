@@ -28,7 +28,7 @@ class _HasilSurveyState extends State<HasilSurvey> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Detail Hasil Survey")),
+      appBar: AppBar(title: const Text("Detail Deteksi Stunting")),
       backgroundColor: CustomColor.blueSecondary,
       body: FutureBuilder<Map<String, dynamic>>(
         future: futureData,
@@ -67,7 +67,7 @@ class _HasilSurveyState extends State<HasilSurvey> {
                       children: [
                         // Header
                         Text(
-                          "📋 Hasil Survey Anak",
+                          "📋 Hasil Deteksi Stunting Anak",
                           style: Theme.of(context).textTheme.headlineMedium
                               ?.copyWith(
                                 fontWeight: FontWeight.bold,
@@ -78,7 +78,8 @@ class _HasilSurveyState extends State<HasilSurvey> {
 
                         // Render data
                         ...data.entries.map((e) {
-                          final key = e.key.replaceAll("_", " ").toUpperCase();
+                          final key = e.key.replaceAll("_", " ");
+                          //.toUpperCase()
                           final value = e.value.toString();
 
                           // Highlight field khusus

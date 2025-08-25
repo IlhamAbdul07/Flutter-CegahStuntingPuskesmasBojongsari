@@ -66,7 +66,7 @@ class _LaporanWidgetState extends State<LaporanWidget> {
                         color: CustomColor.greenMain,
                         child: Center(
                           child: Text(
-                            "Laporan Rekap Stunting",
+                            "Laporan Riwayat Deteksi Stunting",
                             style: TextStyle(
                               fontSize: constraints.maxWidth * 0.025,
                               fontWeight: FontWeight.bold,

@@ -91,15 +91,15 @@ class GSheetHelper {
       final rows = decoded['values'] as List<dynamic>? ?? [];
 
       final row = rows.first as List<dynamic>;
-      data['tgl'] = row[0].toString();
+      data['tanggal'] = row[0].toString();
       data['nama'] = row[1].toString();
       data['jenis_kelamin'] = row[2].toString();
       data['usia'] = row[3].toString();
-      data['bbu'] = row[4].toString();
-      data['tbu'] = row[5].toString();
-      data['bbtb'] = row[6].toString();
-      data['lku'] = row[7].toString();
-      data['lila'] = row[8].toString();
+      data['berat_badan_terhadap_umur'] = row[4].toString();
+      data['tinggi_badan_terhadap_umur'] = row[5].toString();
+      data['berat_badan_terhadap_tinggi'] = row[6].toString();
+      data['lingkar_kepala_terhadap_umur'] = row[7].toString();
+      data['lingkar_lengan_atas'] = row[8].toString();
       data['posisi_anak'] = row[9].toString();
       data['ibu_hamil'] = row[10].toString();
       data['pendidikan_ibu'] = row[11].toString();
