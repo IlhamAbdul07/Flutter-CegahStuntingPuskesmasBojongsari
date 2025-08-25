@@ -31861,15 +31861,15 @@ case 3:f=e
 if(f.b===200){p=t.g.a(J.bZ(B.ar.lU(A.M2(A.LX(f.e)).dh(f.w),null),"values"))
 o=t.j.a(J.lX(p==null?[]:p))
 n=J.bk(o)
-i.i(0,"tgl",J.b9(n.h(o,0)))
+i.i(0,"tanggal",J.b9(n.h(o,0)))
 i.i(0,"nama",J.b9(n.h(o,1)))
 i.i(0,"jenis_kelamin",J.b9(n.h(o,2)))
 i.i(0,"usia",J.b9(n.h(o,3)))
-i.i(0,"bbu",J.b9(n.h(o,4)))
-i.i(0,"tbu",J.b9(n.h(o,5)))
-i.i(0,"bbtb",J.b9(n.h(o,6)))
-i.i(0,"lku",J.b9(n.h(o,7)))
-i.i(0,"lila",J.b9(n.h(o,8)))
+i.i(0,"berat_badan_terhadap_umur",J.b9(n.h(o,4)))
+i.i(0,"tinggi_badan_terhadap_umur",J.b9(n.h(o,5)))
+i.i(0,"berat_badan_terhadap_tinggi",J.b9(n.h(o,6)))
+i.i(0,"lingkar_kepala_terhadap_umur",J.b9(n.h(o,7)))
+i.i(0,"lingkar_lengan_atas",J.b9(n.h(o,8)))
 i.i(0,"posisi_anak",J.b9(n.h(o,9)))
 i.i(0,"ibu_hamil",J.b9(n.h(o,10)))
 i.i(0,"pendidikan_ibu",J.b9(n.h(o,11)))
@@ -100215,10 +100215,10 @@ q=A.bT(""+A.cu(p)+"-"+A.bf(s)+"-"+A.b6(q),r,r,r,r,r,r,r,r,r,r,r,r,r,r)}return A.
 $S:660}
 A.Pu.prototype={
 K(a){var s="Anak ketiga atau lebih",r=null,q="Perguruan Tinggi",p="Tidak ada paparan",o="Ada penyakit kronis",n="Pernah sakit ringan",m="Tidak punya jaminan",l="Punya asuransi lain",k="Tidak sama sekali",j=t.N,i=t.z,h=t.H7,g=t.pm
-return A.dc(A.b([B.a0W,B.a0F,new A.dq("posisi_anak",A.b([A.S(["value","Anak pertama","label","Anak Pertama"],j,i),A.S(["value","Anak Kedua","label","Anak Kedua"],j,i),A.S(["value",s,"label",s],j,i)],h),r,g),B.at,B.a0L,B.a1m,new A.dq("ibu_hamil",A.b([A.S(["value","< 20 tahun","label","< 20 tahun"],j,i),A.S(["value","20 - 35 tahun","label","20 - 35 tahun"],j,i),A.S(["value",">35","label","> 35 tahun"],j,i)],h),r,g),B.at,B.a1h,B.a13,new A.dq("pendidikan_ibu",A.b([A.S(["value","SD / SMP","label","SD / SMP"],j,i),A.S(["value","SMA","label","SMA"],j,i),A.S(["value",q,"label",q],j,i)],h),r,g),B.at,B.a0y,B.a0C,new A.dq("kondisi_ekonomi",A.b([A.S(["value","< Rp 1 juta","label","< Rp 1 juta"],j,i),A.S(["value","Rp 1 - 3 juta","label","Rp 1 - 3 juta"],j,i),A.S(["value","> Rp 3 juta","label","> Rp 3 juta"],j,i)],h),r,g),B.at,B.a1e,B.a0T,new A.dq("pemeriksaan_rutin",A.b([A.S(["value","< 4 kali","label","< 4 kali"],j,i),A.S(["value","4 - 7 kali","label","4 - 7 kali"],j,i),A.S(["value","\u2265 8 kali","label","\u2265 8 kali"],j,i)],h),r,g),B.at,B.a12,B.a0A,new A.dq("istirahat",A.b([A.S(["value","Kurang","label","Kurang"],j,i),A.S(["value","Cukup","label","Cukup"],j,i),A.S(["value","Sangat Cukup","label","Sangat Cukup"],j,i)],h),r,g),B.at,B.a0X,B.a0s,new A.dq("menghindari_rokok",A.b([A.S(["value","Sering terpapar","label","Sering terpapar"],j,i),A.S(["value","Kadang","label","Kadang"],j,i),A.S(["value",p,"label",p],j,i)],h),r,g),B.at,B.a1l,B.a0J,new A.dq("riwayat_penyakit",A.b([A.S(["value",o,"label",o],j,i),A.S(["value",n,"label",n],j,i),A.S(["value","Sehat","label","Sehat"],j,i)],h),r,g),B.at,B.a1a,B.a14,new A.dq("kesehatan_mental",A.b([A.S(["value","Sangat stres","label","Sangat stres"],j,i),A.S(["value","Kadang stres","label","Kadang stres"],j,i),A.S(["value","Tidak stres","label","Tidak stres"],j,i)],h),r,g),B.at,B.a1f,B.a1o,new A.dq("persalinan",A.b([A.S(["value","Dukun bayi","label","Dukun bayi"],j,i),A.S(["value","Bidan","label","Bidan"],j,i),A.S(["value","Dokter RS","label","Dokter RS"],j,i)],h),r,g),B.at,B.a1_,B.a1g,new A.dq("layanan_kesehatan",A.b([A.S(["value",m,"label",m],j,i),A.S(["value","Punya BPJS","label","Punya BPJS"],j,i),A.S(["value",l,"label",l],j,i)],h),r,g),B.at,B.a1q,B.a0Z,new A.dq("asi",A.b([A.S(["value",k,"label",k],j,i),A.S(["value","Sebagian","label","Sebagian"],j,i),A.S(["value","Lengkap 6 bulan","label","Lengkap 6 bulan"],j,i)],h),r,g),B.at,B.a0K,B.a16,new A.dq("pendamping_asi",A.b([A.S(["value","< 6 bulan","label","< 6 bulan"],j,i),A.S(["value","6 bulan","label","6 bulan"],j,i),A.S(["value","> 6 bulan","label","> 6 bulan"],j,i)],h),r,g)],t.p),B.aL,B.G,B.O)}}
+return A.dc(A.b([B.a0W,B.a0G,new A.dq("posisi_anak",A.b([A.S(["value","Anak pertama","label","Anak Pertama"],j,i),A.S(["value","Anak Kedua","label","Anak Kedua"],j,i),A.S(["value",s,"label",s],j,i)],h),r,g),B.at,B.a0L,B.a1m,new A.dq("ibu_hamil",A.b([A.S(["value","< 20 tahun","label","< 20 tahun"],j,i),A.S(["value","20 - 35 tahun","label","20 - 35 tahun"],j,i),A.S(["value",">35","label","> 35 tahun"],j,i)],h),r,g),B.at,B.a1h,B.a13,new A.dq("pendidikan_ibu",A.b([A.S(["value","SD / SMP","label","SD / SMP"],j,i),A.S(["value","SMA","label","SMA"],j,i),A.S(["value",q,"label",q],j,i)],h),r,g),B.at,B.a0y,B.a0D,new A.dq("kondisi_ekonomi",A.b([A.S(["value","< Rp 1 juta","label","< Rp 1 juta"],j,i),A.S(["value","Rp 1 - 3 juta","label","Rp 1 - 3 juta"],j,i),A.S(["value","> Rp 3 juta","label","> Rp 3 juta"],j,i)],h),r,g),B.at,B.a1e,B.a0T,new A.dq("pemeriksaan_rutin",A.b([A.S(["value","< 4 kali","label","< 4 kali"],j,i),A.S(["value","4 - 7 kali","label","4 - 7 kali"],j,i),A.S(["value","\u2265 8 kali","label","\u2265 8 kali"],j,i)],h),r,g),B.at,B.a12,B.a0B,new A.dq("istirahat",A.b([A.S(["value","Kurang","label","Kurang"],j,i),A.S(["value","Cukup","label","Cukup"],j,i),A.S(["value","Sangat Cukup","label","Sangat Cukup"],j,i)],h),r,g),B.at,B.a0X,B.a0s,new A.dq("menghindari_rokok",A.b([A.S(["value","Sering terpapar","label","Sering terpapar"],j,i),A.S(["value","Kadang","label","Kadang"],j,i),A.S(["value",p,"label",p],j,i)],h),r,g),B.at,B.a1l,B.a0J,new A.dq("riwayat_penyakit",A.b([A.S(["value",o,"label",o],j,i),A.S(["value",n,"label",n],j,i),A.S(["value","Sehat","label","Sehat"],j,i)],h),r,g),B.at,B.a1a,B.a14,new A.dq("kesehatan_mental",A.b([A.S(["value","Sangat stres","label","Sangat stres"],j,i),A.S(["value","Kadang stres","label","Kadang stres"],j,i),A.S(["value","Tidak stres","label","Tidak stres"],j,i)],h),r,g),B.at,B.a1f,B.a1o,new A.dq("persalinan",A.b([A.S(["value","Dukun bayi","label","Dukun bayi"],j,i),A.S(["value","Bidan","label","Bidan"],j,i),A.S(["value","Dokter RS","label","Dokter RS"],j,i)],h),r,g),B.at,B.a1_,B.a1g,new A.dq("layanan_kesehatan",A.b([A.S(["value",m,"label",m],j,i),A.S(["value","Punya BPJS","label","Punya BPJS"],j,i),A.S(["value",l,"label",l],j,i)],h),r,g),B.at,B.a1q,B.a0Z,new A.dq("asi",A.b([A.S(["value",k,"label",k],j,i),A.S(["value","Sebagian","label","Sebagian"],j,i),A.S(["value","Lengkap 6 bulan","label","Lengkap 6 bulan"],j,i)],h),r,g),B.at,B.a0K,B.a16,new A.dq("pendamping_asi",A.b([A.S(["value","< 6 bulan","label","< 6 bulan"],j,i),A.S(["value","6 bulan","label","6 bulan"],j,i),A.S(["value","> 6 bulan","label","> 6 bulan"],j,i)],h),r,g)],t.p),B.aL,B.G,B.O)}}
 A.Pv.prototype={
 K(a){var s=null,r="3 - 5 kali / hari",q="Tidak memperhatikan gizi",p="Tidak minum suplemen",o="Imunisasi sebagian",n="Imunisasi lengkap",m="Selalu mendukung",l=t.N,k=t.z,j=t.H7,i=t.pm
-return A.dc(A.b([B.a15,B.a1d,new A.dq("kualitas_mpasi",A.b([A.S(["value","Instan","label","Instan"],l,k),A.S(["value","Campuran","label","Campuran"],l,k),A.S(["value","Buatan sendiri","label","Buatan sendiri"],l,k)],j),s,i),B.at,B.a0v,B.a11,new A.dq("makan_anak",A.b([A.S(["value","< 3 kali / hari","label","< 3 kali / hari"],l,k),A.S(["value",r,"label",r],l,k),A.S(["value","> 5 kali / hari","label","> 5 kali / hari"],l,k)],j),s,i),B.at,B.a1j,B.a1i,new A.dq("pola_makan",A.b([A.S(["value",q,"label",q],l,k),A.S(["value","Kadang seimbang","label","Kadang seimbang"],l,k),A.S(["value","Sangat seimbang","label","Sangat seimbang"],l,k)],j),s,i),B.at,B.a0u,B.a0D,new A.dq("status_gizi",A.b([A.S(["value",p,"label",p],l,k),A.S(["value","Kadang minum","label","Kadang minum"],l,k),A.S(["value","Rutin minum","label","Rutin minum"],l,k)],j),s,i),B.at,B.a0w,B.a0q,new A.dq("riwayat_imunisasi",A.b([A.S(["value","Tidak imunisasi","label","Tidak imunisasi"],l,k),A.S(["value",o,"label",o],l,k),A.S(["value",n,"label",n],l,k)],j),s,i),B.at,B.a0R,B.a1p,new A.dq("kebersihan_lingkungan",A.b([A.S(["value","Buruk","label","Buruk"],l,k),A.S(["value","Sedang","label","Sedang"],l,k),A.S(["value","Baik","label","Baik"],l,k)],j),s,i),B.at,B.a0B,B.a0t,new A.dq("kebersihan_diri",A.b([A.S(["value","Tidak rutin","label","Tidak rutin"],l,k),A.S(["value","Kadang-kadang","label","Kadang-kadang"],l,k),A.S(["value","Sangat rutin","label","Sangat rutin"],l,k)],j),s,i),B.at,B.a19,B.a0r,new A.dq("olahraga",A.b([A.S(["value","Tidak pernah","label","Tidak pernah"],l,k),A.S(["value","Kadang","label","Kadang"],l,k),A.S(["value","Rutin","label","Rutin"],l,k)],j),s,i),B.at,B.a10,B.a17,new A.dq("dukungan_keluarga",A.b([A.S(["value","Tidak ada","label","Tidak ada"],l,k),A.S(["value","Kadang ada","label","Kadang ada"],l,k),A.S(["value",m,"label",m],l,k)],j),s,i),B.at,B.a1b,B.a0V,new A.dq("pola_asuh",A.b([A.S(["value","Otoriter","label","Otoriter"],l,k),A.S(["value","Demokratis","label","Demokratis"],l,k),A.S(["value","Permisif","label","Permisif"],l,k)],j),s,i)],t.p),B.aL,B.G,B.O)}}
+return A.dc(A.b([B.a15,B.a1d,new A.dq("kualitas_mpasi",A.b([A.S(["value","Instan","label","Instan"],l,k),A.S(["value","Campuran","label","Campuran"],l,k),A.S(["value","Buatan sendiri","label","Buatan sendiri"],l,k)],j),s,i),B.at,B.a0v,B.a11,new A.dq("makan_anak",A.b([A.S(["value","< 3 kali / hari","label","< 3 kali / hari"],l,k),A.S(["value",r,"label",r],l,k),A.S(["value","> 5 kali / hari","label","> 5 kali / hari"],l,k)],j),s,i),B.at,B.a1j,B.a1i,new A.dq("pola_makan",A.b([A.S(["value",q,"label",q],l,k),A.S(["value","Kadang seimbang","label","Kadang seimbang"],l,k),A.S(["value","Sangat seimbang","label","Sangat seimbang"],l,k)],j),s,i),B.at,B.a0u,B.a0E,new A.dq("status_gizi",A.b([A.S(["value",p,"label",p],l,k),A.S(["value","Kadang minum","label","Kadang minum"],l,k),A.S(["value","Rutin minum","label","Rutin minum"],l,k)],j),s,i),B.at,B.a0w,B.a0q,new A.dq("riwayat_imunisasi",A.b([A.S(["value","Tidak imunisasi","label","Tidak imunisasi"],l,k),A.S(["value",o,"label",o],l,k),A.S(["value",n,"label",n],l,k)],j),s,i),B.at,B.a0R,B.a1p,new A.dq("kebersihan_lingkungan",A.b([A.S(["value","Buruk","label","Buruk"],l,k),A.S(["value","Sedang","label","Sedang"],l,k),A.S(["value","Baik","label","Baik"],l,k)],j),s,i),B.at,B.a0C,B.a0t,new A.dq("kebersihan_diri",A.b([A.S(["value","Tidak rutin","label","Tidak rutin"],l,k),A.S(["value","Kadang-kadang","label","Kadang-kadang"],l,k),A.S(["value","Sangat rutin","label","Sangat rutin"],l,k)],j),s,i),B.at,B.a19,B.a0r,new A.dq("olahraga",A.b([A.S(["value","Tidak pernah","label","Tidak pernah"],l,k),A.S(["value","Kadang","label","Kadang"],l,k),A.S(["value","Rutin","label","Rutin"],l,k)],j),s,i),B.at,B.a10,B.a17,new A.dq("dukungan_keluarga",A.b([A.S(["value","Tidak ada","label","Tidak ada"],l,k),A.S(["value","Kadang ada","label","Kadang ada"],l,k),A.S(["value",m,"label",m],l,k)],j),s,i),B.at,B.a1b,B.a0V,new A.dq("pola_asuh",A.b([A.S(["value","Otoriter","label","Otoriter"],l,k),A.S(["value","Demokratis","label","Demokratis"],l,k),A.S(["value","Permisif","label","Permisif"],l,k)],j),s,i)],t.p),B.aL,B.G,B.O)}}
 A.r9.prototype={
 ae(){return new A.Yh()}}
 A.Yh.prototype={
@@ -100226,7 +100226,7 @@ ar(){this.aK()
 this.d=A.w7("AIzaSyCCsxUUrQllh8KSXe93PDxhE-ylpWZhqQA",this.a.c,u.D)},
 K(a){var s=null,r=this.d
 r===$&&A.a()
-return A.Fk(new A.AF(B.a0I,new A.JB(s,s,1/0,56),s),B.eT,A.aOB(new A.aA7(),r,t.P),s,s)}}
+return A.Fk(new A.AF(B.a0z,new A.JB(s,s,1/0,56),s),B.eT,A.aOB(new A.aA7(),r,t.P),s,s)}}
 A.aA7.prototype={
 $2(a,b){var s,r,q,p=null
 if(b.a===B.ho)return B.jx
@@ -100235,23 +100235,23 @@ if(s!=null)return A.et(A.bT("Error: "+A.l(s),p,p,p,p,p,p,p,p,p,p,p,p,p,p),p,p)
 else{s=b.b
 if(s==null||J.nR(s))return B.Fr}}r=A.b([new A.bx(0,B.L,B.b7,B.fu,8)],t.V)
 q=A.W(a).ok.e
-q=A.b([A.bT("\ud83d\udccb Hasil Survey Anak",p,p,p,p,p,p,p,p,q==null?p:q.Y2(B.h7,B.aN),p,p,p,p,p),B.bx],t.p)
+q=A.b([A.bT("\ud83d\udccb Hasil Deteksi Stunting Anak",p,p,p,p,p,p,p,p,q==null?p:q.Y2(B.h7,B.aN),p,p,p,p,p),B.bx],t.p)
 s=s.ghs()
 B.b.H(q,s.fO(s,new A.aA6(),t.Rn).dC(0))
 return A.xH(new A.bE(B.f6,A.et(new A.ek(B.nj,A.cR(p,A.dc(q,B.aL,B.G,B.O),B.r,p,p,new A.cG(B.j,p,p,B.D6,r,p,p,B.a5),p,p,p,B.hz,p,p,p),p),p,p),p),p,B.ak)},
 $S:661}
 A.aA6.prototype={
-$1(a){var s,r,q,p=null,o=a.a,n=A.dL(o,"_"," "),m=J.b9(a.b),l=B.b.q(A.b(["indikasi_awal","probabilitas_stunting","probabilitas_normal","indikasi","rekomendasi"],t.s),o)
-n=A.fH(A.bT(n.toUpperCase(),p,p,p,p,p,p,p,p,B.a_A,p,p,p,p,p),2)
-o=l?A.az(51,B.eT.E()>>>16&255,B.eT.E()>>>8&255,B.eT.E()&255):B.y
-s=A.iI(6)
-r=m.length===0?"-":m
-q=l?B.jD:B.T
-return new A.bE(B.K8,A.fw(A.b([n,A.fH(A.cR(p,A.bT(r,p,p,p,p,p,p,p,p,A.ds(p,p,q,p,p,p,p,p,p,p,p,p,p,p,l?B.aN:B.t,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),B.r,p,p,new A.cG(o,p,p,s,p,p,p,B.a5),p,p,p,B.K9,p,p,p),3)],t.p),B.aL,B.G,B.O,p),p)},
+$1(a){var s,r,q,p,o=null,n=a.a,m=A.dL(n,"_"," "),l=J.b9(a.b),k=B.b.q(A.b(["indikasi_awal","probabilitas_stunting","probabilitas_normal","indikasi","rekomendasi"],t.s),n)
+n=A.fH(A.bT(m,o,o,o,o,o,o,o,o,B.a_A,o,o,o,o,o),2)
+s=k?A.az(51,B.eT.E()>>>16&255,B.eT.E()>>>8&255,B.eT.E()&255):B.y
+r=A.iI(6)
+q=l.length===0?"-":l
+p=k?B.jD:B.T
+return new A.bE(B.K8,A.fw(A.b([n,A.fH(A.cR(o,A.bT(q,o,o,o,o,o,o,o,o,A.ds(o,o,p,o,o,o,o,o,o,o,o,o,o,o,k?B.aN:B.t,o,o,!0,o,o,o,o,o,o,o,o),o,o,o,o,o),B.r,o,o,new A.cG(s,o,o,r,o,o,o,B.a5),o,o,o,B.K9,o,o,o),3)],t.p),B.aL,B.G,B.O,o),o)},
 $S:662}
 A.PI.prototype={
 K(a){var s=null,r=$.aXx()
-return A.cR(s,A.fw(A.b([A.afS("assets/logo.png",100,100),A.bT("Pusekesmas Bojong Sari",s,s,s,s,s,s,s,s,A.ds(s,s,B.j,s,s,s,s,s,s,s,s,25,s,s,B.p9,s,s,!0,s,s,s,s,s,s,s,s),s,s,s,s,s),B.B0,A.kX(B.j,s,B.Lo,s,s,this.d,s,s,s),B.VA],t.p),B.W,B.G,B.O,s),B.r,s,s,r,s,75,s,s,s,s,s)}}
+return A.cR(s,A.fw(A.b([A.afS("assets/logo.png",100,100),A.bT("Puskesmas Bojongsari",s,s,s,s,s,s,s,s,A.ds(s,s,B.j,s,s,s,s,s,s,s,s,25,s,s,B.p9,s,s,!0,s,s,s,s,s,s,s,s),s,s,s,s,s),B.B0,A.kX(B.j,s,B.Lo,s,s,this.d,s,s,s),B.VA],t.p),B.W,B.G,B.O,s),B.r,s,s,r,s,75,s,s,s,s,s)}}
 A.Tn.prototype={
 K(a){var s=null,r=t.w,q=A.fH(new A.bE(B.oL,A.bT("Kita ditugaskan menurunkan angka Stunting dari 24% ke 14% pada 2024. Untuk bisa menurunkannya pastikan gizi terpenuhi bahkan sejak remaja dan saat ibu hamil, karena kondisi ini paling rawan yang bisa menyebabkan stunting",s,s,s,s,s,s,s,s,A.ds(s,s,B.T,s,s,s,s,s,s,s,s,A.bH(a,s,r).w.a.a*0.018,s,s,s,s,1.5,!0,s,s,s,s,s,s,s,s),B.el,s,s,s,s),s),1),p=A.bH(a,s,r).w
 return A.c9(A.fH(A.fw(A.b([q,A.fH(new A.dG(B.cw,s,s,A.afS("assets/home2.png",A.bH(a,s,r).w.a.a*0.5,p.a.a*0.5),s),1)],t.p),B.W,B.G,B.O,s),1),450,1/0)}}
@@ -100342,7 +100342,7 @@ A.aBe.prototype={
 $0(){return this.a.d=!1},
 $S:0}
 A.aBc.prototype={
-$2(a,b){var s=null,r=this.a,q=A.cR(s,A.et(A.bT("Laporan Rekap Stunting",s,s,s,s,s,s,s,s,A.ds(s,s,B.j,s,s,s,s,s,s,s,s,b.b*0.025,s,s,B.aN,s,s,!0,s,s,s,s,s,s,s,s),s,s,s,s,s),s,s),B.r,B.eO,s,s,s,50,s,s,s,s,1/0),p=A.iI(16),o=A.b([new A.bx(0,B.L,A.az(51,B.l.E()>>>16&255,B.l.E()>>>8&255,B.l.E()&255),B.ic,8)],t.V),n=t.p
+$2(a,b){var s=null,r=this.a,q=A.cR(s,A.et(A.bT("Laporan Riwayat Deteksi Stunting",s,s,s,s,s,s,s,s,A.ds(s,s,B.j,s,s,s,s,s,s,s,s,b.b*0.025,s,s,B.aN,s,s,!0,s,s,s,s,s,s,s,s),s,s,s,s,s),s,s),B.r,B.eO,s,s,s,50,s,s,s,s,1/0),p=A.iI(16),o=A.b([new A.bx(0,B.L,A.az(51,B.l.E()>>>16&255,B.l.E()>>>8&255,B.l.E()&255),B.ic,8)],t.V),n=t.p
 return A.Fk(s,s,A.cR(s,A.ah8(A.b([new A.bE(B.f6,A.dc(A.b([q,B.fK,A.cR(s,A.c9(A.aOB(new A.aBb(r),A.aer("AIzaSyCCsxUUrQllh8KSXe93PDxhE-ylpWZhqQA",u.D),t.b5),450,s),B.r,s,s,new A.cG(B.j,s,s,p,o,s,s,B.a5),s,s,s,B.f6,s,s,1/0)],n),B.W,B.G,B.O),s),B.VE,new A.Cy(s)],n),s,s,B.ak,!1),B.r,B.eO,s,s,s,1/0,s,s,s,s,1/0),s,r.e)},
 $S:153}
 A.aBb.prototype={
@@ -100383,7 +100383,7 @@ return A.O(null,r)}})
 return A.P($async$$0,r)},
 $S:25}
 A.QK.prototype={
-K(a){var s,r,q=this,p=null,o=t.p,n=A.fH(A.cR(p,new A.dG(B.R,p,p,A.dc(A.b([A.afS("assets/logo.png",200,200),A.bT("Selamat Datang!",p,p,p,p,p,p,p,p,A.ds(p,p,B.j,p,p,p,p,p,p,p,p,30,p,p,B.aN,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),A.bT("Data Stunting Puskesmas Bojong Sari",p,p,p,p,p,p,p,p,A.ds(p,p,B.j,p,p,p,p,p,p,p,p,20,p,p,B.aN,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),B.fK,A.c9(new A.Au(p),p,1/0)],o),B.W,B.dj,B.O),p),B.r,p,p,new A.cG(p,p,p,p,p,B.Mo,p,B.a5),p,p,p,p,p,p,p),1),m=A.bT("LOGIN",p,p,p,p,p,p,p,p,A.ds(p,p,B.jD,p,p,p,p,p,p,p,p,50,p,p,B.dR,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),l=A.aKC(!1,q.d,B.LP,p,p,!1,p,p,new A.ahc()),k=q.f
+K(a){var s,r,q=this,p=null,o=t.p,n=A.fH(A.cR(p,new A.dG(B.R,p,p,A.dc(A.b([A.afS("assets/logo.png",200,200),A.bT("Selamat Datang!",p,p,p,p,p,p,p,p,A.ds(p,p,B.j,p,p,p,p,p,p,p,p,30,p,p,B.aN,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),A.bT("Data Stunting Puskesmas Bojongsari",p,p,p,p,p,p,p,p,A.ds(p,p,B.j,p,p,p,p,p,p,p,p,20,p,p,B.aN,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),B.fK,A.c9(new A.Au(p),p,1/0)],o),B.W,B.dj,B.O),p),B.r,p,p,new A.cG(p,p,p,p,p,B.Mo,p,B.a5),p,p,p,p,p,p,p),1),m=A.bT("LOGIN",p,p,p,p,p,p,p,p,A.ds(p,p,B.jD,p,p,p,p,p,p,p,p,50,p,p,B.dR,p,p,!0,p,p,p,p,p,p,p,p),p,p,p,p,p),l=A.aKC(!1,q.d,B.LP,p,p,!1,p,p,new A.ahc()),k=q.f
 k=A.aKC(!1,q.e,A.aJQ(p,B.mx,p,p,p,p,p,p,!0,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,"Password",!0,!0,p,B.Ll,p,p,p,p,p,p,A.kX(p,p,A.re(k?B.pi:B.L8,p,p,p),p,p,q.w,p,p,p),p,p,p,p),p,p,!k,new A.ahd(q),p,new A.ahe())
 s=q.r
 r=s?p:q.x
@@ -100410,7 +100410,7 @@ r.H(0,o)
 return new A.a19(r)}}
 A.a19.prototype={
 K(a){var s,r,q=null,p=A.b([new A.bx(0,B.L,B.b7,new A.k(0,2),8)],t.V),o=A.re(B.L_,B.j,q,40),n=A.W(a).ok.r,m=t.p
-n=A.cR(q,A.dc(A.b([o,B.AU,A.bT("Form Survey Stunting",q,q,q,q,q,q,q,q,n==null?q:n.Y2(B.j,B.aN),q,q,q,q,q)],m),B.W,B.G,B.O),B.r,q,q,new A.cG(B.eO,q,q,B.D3,q,q,q,B.a5),q,q,q,B.f6,q,q,1/0)
+n=A.cR(q,A.dc(A.b([o,B.AU,A.bT("Form Deteksi Stunting",q,q,q,q,q,q,q,q,n==null?q:n.Y2(B.j,B.aN),q,q,q,q,q)],m),B.W,B.G,B.O),B.r,q,q,new A.cG(B.eO,q,q,B.D3,q,q,q,B.a5),q,q,q,B.f6,q,q,1/0)
 o=A.aOh(q,q,B.jD,q,q,q,q,q,q,q,q,q,B.K5,q,q,q,q,q,q,q)
 s=this.d
 r=s?q:new A.aEE(this,a)
@@ -107051,8 +107051,8 @@ B.Fx=new A.qq(null,null,null)
 B.jx=new A.es(B.R,null,null,B.Fx,null)
 B.j=new A.C(1,1,1,1,B.i)
 B.Y3=new A.o(!0,B.j,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0H=new A.aV("\xa9 2025 Puskesmas Bojongsari - Semua Hak Dilindungi",null,B.Y3,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Fq=new A.es(B.R,null,null,B.a0H,null)
+B.a0I=new A.aV("\xa9 2025 Puskesmas Bojongsari - Semua Hak Dilindungi",null,B.Y3,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.Fq=new A.es(B.R,null,null,B.a0I,null)
 B.a0U=new A.aV("Data tidak ditemukan",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Fr=new A.es(B.R,null,null,B.a0U,null)
 B.Fv=new A.qq(null,B.j,null)
@@ -107862,8 +107862,8 @@ B.J3=new A.jB(B.Fl,!1)
 B.a0P=new A.aV("Jenis Kelamin",null,B.fP,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Fm=new A.es(B.R,null,null,B.a0P,null)
 B.J2=new A.jB(B.Fm,!1)
-B.a0z=new A.aV("Usia",null,B.fP,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Fn=new A.es(B.R,null,null,B.a0z,null)
+B.a0A=new A.aV("Usia",null,B.fP,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.Fn=new A.es(B.R,null,null,B.a0A,null)
 B.J1=new A.jB(B.Fn,!1)
 B.a0M=new A.aV("Aksi",null,B.fP,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Fo=new A.es(B.R,null,null,B.a0M,null)
@@ -109513,12 +109513,12 @@ B.VO=new A.lp(3,"hide")
 B.a4N=new A.lp(4,"remove")
 B.AZ=new A.lp(5,"timeout")
 B.VP=new A.xM(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0G=new A.aV("Data berhasil disimpan",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.VQ=new A.n9(B.a0G,null,null,null,null,null,null,null,null,null,null,null,null,B.hy,null,null,null,B.M,null)
+B.a0H=new A.aV("Data berhasil disimpan",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.VQ=new A.n9(B.a0H,null,null,null,null,null,null,null,null,null,null,null,null,B.hy,null,null,null,B.M,null)
 B.a0S=new A.aV("Isi data terlebih dahulu",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.VR=new A.n9(B.a0S,null,null,null,null,null,null,null,null,null,null,null,null,B.hy,null,null,null,B.M,null)
-B.a0E=new A.aV("Username atau password salah",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.VS=new A.n9(B.a0E,null,null,null,null,null,null,null,null,null,null,null,null,B.hy,null,null,null,B.M,null)
+B.a0F=new A.aV("Username atau password salah",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.VS=new A.n9(B.a0F,null,null,null,null,null,null,null,null,null,null,null,null,B.hy,null,null,null,B.M,null)
 B.B_=new A.G1(0,"permissive")
 B.VT=new A.G1(1,"normal")
 B.VU=new A.G1(2,"forced")
@@ -109911,12 +109911,12 @@ B.a0v=new A.aV("Pemberian Makan Anak",null,B.aq,null,null,null,null,null,null,nu
 B.a0w=new A.aV("Riwayat Imunisasi",null,B.aq,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a0x=new A.aV("Pilih tanggal",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a0y=new A.aV("Kondisi Ekonomi",null,B.aq,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0A=new A.aV("Apakah Ibu merasa cukup istirahat selama masa kehamilan atau setelah melahirkan?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0B=new A.aV("Kebersihan Diri",null,B.aq,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0C=new A.aV("Berapa rata-rata penghasilan keluarga per bulan?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0D=new A.aV("Apakah Ibu rutin mengonsumsi suplemen zat besi atau vitamin dari puskesmas?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0F=new A.aV("Anak ke berapa dalam keluarga ini?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.a0I=new A.aV("Detail Hasil Survey",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a0z=new A.aV("Detail Deteksi Stunting",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a0B=new A.aV("Apakah Ibu merasa cukup istirahat selama masa kehamilan atau setelah melahirkan?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a0C=new A.aV("Kebersihan Diri",null,B.aq,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a0D=new A.aV("Berapa rata-rata penghasilan keluarga per bulan?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a0E=new A.aV("Apakah Ibu rutin mengonsumsi suplemen zat besi atau vitamin dari puskesmas?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a0G=new A.aV("Anak ke berapa dalam keluarga ini?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a0J=new A.aV("Apakah Ibu memiliki riwayat penyakit seperti hipertensi, anemia, atau diabetes?",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a0K=new A.aV("Makanan Pendamping ASI",null,B.aq,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a0L=new A.aV("Usia Ibu Saat Kehamilan",null,B.aq,null,null,null,null,null,null,null,null,null,null,null,null,null)
