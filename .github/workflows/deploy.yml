@@ -23,7 +23,7 @@ jobs:
       
       - name: Update API Key
         run: |
-          sed -i.bak 's|final gsheetApiKey = ".";.|final gsheetApiKey = "${{ secrets.API_KEY }}";|' lib/constants/config.dart
+          sed -i.bak 's|final gsheetApiKey = ".*";|final gsheetApiKey = "${{ secrets.API_KEY }}";|' lib/constants/config.dart
         shell: bash
 
       - name: Install dependencies
