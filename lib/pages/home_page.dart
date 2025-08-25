@@ -18,7 +18,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  int? surveyResult;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void confirmLogout() async {
@@ -65,29 +64,32 @@ class _HomePageState extends State<HomePage> {
     await prefs.remove('expirationTime');
   }
 
+  void _openHasilSurvey(int row) async {
+    // tampilkan loading dulu
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const Center(child: CircularProgressIndicator()),
+    );
+
+    await Future.delayed(const Duration(milliseconds: 500)); // simulasi loading
+    if (!mounted) return;
+    Navigator.pop(context); // tutup loading
+
+    // buka halaman hasil survey
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => HasilSurvey(row: row)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      const HomeWidget(),
-      SurveyWidget(
-        onSubmit: (row) {
-          setState(() {
-            surveyResult = row;
-            currentIndex = 99;
-          });
-        },
-      ),
-      LaporanWidget(
-        onSubmit: (row) {
-          setState(() {
-            surveyResult = row;
-            currentIndex = 99;
-          });
-        },
-      ),
-
-      const Text("error"),
-      if (surveyResult != null) HasilSurvey(row: surveyResult!),
+      HomeWidget(),
+      SurveyWidget(onSubmit: (row) => _openHasilSurvey(row)),
+      LaporanWidget(onSubmit: (row) => _openHasilSurvey(row)),
+      const Text("Error"),
     ];
 
     return Scaffold(
@@ -101,14 +103,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       endDrawer: DrawerMenu(onMenuItemSelected: onMenuItemSelected),
-      body: IndexedStack(index: _getIndexForStack(), children: pages),
+      body: IndexedStack(index: currentIndex, children: pages),
     );
-  }
-
-  int _getIndexForStack() {
-    if (currentIndex == 99 && surveyResult != null) {
-      return 4;
-    }
-    return currentIndex;
   }
 }

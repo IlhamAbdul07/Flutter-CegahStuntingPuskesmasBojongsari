@@ -28,14 +28,8 @@ class _HasilSurveyState extends State<HasilSurvey> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Detail Hasil Survey")),
       backgroundColor: CustomColor.blueSecondary,
-      appBar: AppBar(
-        title: const Text(
-          "Detail Hasil Survey",
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: CustomColor.bgMain,
-      ),
       body: FutureBuilder<Map<String, dynamic>>(
         future: futureData,
         builder: (context, snapshot) {

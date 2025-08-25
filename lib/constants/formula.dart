@@ -1,12 +1,9 @@
 class Formula {
   static String cleanFormula(String formula) {
-    return formula
-        .replaceAll("\n", " ")          
-        .replaceAll(RegExp(r'\s+'), " ")
-        .trim();                        
+    return formula.replaceAll("\n", " ").replaceAll(RegExp(r'\s+'), " ").trim();
   }
 
-  static String formulaLikelihoodStunting(String col, int rowNumber){
+  static String formulaLikelihoodStunting(String col, int rowNumber) {
     return '''
       =IF(\$AH$rowNumber="Data tidak terpakai";""; 
         IF(OFFSET(\$E\$2;0;COLUMN()-COLUMN(\$AK\$1);ROWS(\$E\$2:\$E\$1000);1)="Data tidak ada";
@@ -20,7 +17,7 @@ class Formula {
     ''';
   }
 
-  static String formulaLikelihoodNormal(String col, int rowNumber){
+  static String formulaLikelihoodNormal(String col, int rowNumber) {
     return '''
       =IF(\$AH$rowNumber="Data tidak terpakai";""; 
         IF(OFFSET(\$E\$2;0;COLUMN()-COLUMN(\$BM\$1);ROWS(\$E\$2:\$E\$1000);1)="Data tidak ada";
@@ -37,7 +34,6 @@ class Formula {
   static String getFormula(String key, int rowNumber, {String? colLikelihood}) {
     String formula = "";
     switch (key) {
-
       case "setengah_mateng_d":
         formula = cleanFormula('''
           =IF(ISBLANK('Form Responses 1'!D$rowNumber); ""; 
@@ -143,7 +139,7 @@ class Formula {
           ))
         ''');
         break;
-        
+
       case "setengah_mateng_i":
         formula = cleanFormula('''
           =IF('Form Responses 1'!H$rowNumber="";"";IF('Form Responses 1'!H$rowNumber<11,5;"Gizi buruk";IF('Form Responses 1'!H$rowNumber<=12,5;"Rawan";"Normal")))
@@ -200,7 +196,7 @@ class Formula {
 
       case "siap_olah_m":
         formula = cleanFormula('''
-          =if('Form data setengah mateng'!M$rowNumber="< Rp 1 juta";0;if('Form data setengah mateng'!M$rowNumber="Rp 1 – 3 juta";1;if('Form data setengah mateng'!M$rowNumber="> Rp 3 juta";2;"Data tidak ada")))
+          =if('Form data setengah mateng'!M$rowNumber="< Rp 1 juta";0;if('Form data setengah mateng'!M$rowNumber="Rp 1 - 3 juta";1;if('Form data setengah mateng'!M$rowNumber="> Rp 3 juta";2;"Data tidak ada")))
         ''');
         break;
 
@@ -325,11 +321,15 @@ class Formula {
         break;
 
       case "siap_olah_ak_bl":
-        formula = cleanFormula(formulaLikelihoodStunting(colLikelihood!, rowNumber));
+        formula = cleanFormula(
+          formulaLikelihoodStunting(colLikelihood!, rowNumber),
+        );
         break;
 
       case "siap_olah_bm_cn":
-        formula = cleanFormula(formulaLikelihoodNormal(colLikelihood!, rowNumber));
+        formula = cleanFormula(
+          formulaLikelihoodNormal(colLikelihood!, rowNumber),
+        );
         break;
 
       case "siap_olah_co":
@@ -417,7 +417,8 @@ class Formula {
   }
 
   static String formatItemIndikasiDanRekomendasi(String input) {
-    List<String> parts = input.split(',')
+    List<String> parts = input
+        .split(',')
         .map((e) => e.trim())
         .map((e) => e.replaceAll(RegExp(r'^\d+\.\s*'), ''))
         .where((e) => e.isNotEmpty)
@@ -433,5 +434,4 @@ class Formula {
       return "${parts.sublist(0, parts.length - 1).join(', ')} dan ${parts.last}";
     }
   }
-
 }

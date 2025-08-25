@@ -66,11 +66,8 @@ class GSheetHelper {
           'usia': usia,
         });
       }
-
-      print('✅ Import dari Sheet selesai: ${rows.length} baris');
       return results;
     } else {
-      print('⚠️ Gagal fetch: ${res.statusCode} ${res.body}');
       return []; // return kosong biar tetap aman
     }
   }
