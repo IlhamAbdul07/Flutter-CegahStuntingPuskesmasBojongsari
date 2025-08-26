@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stunting_web/constants/colors.dart';
 import 'package:stunting_web/constants/dialog_item.dart';
 import 'package:stunting_web/styles/style.dart';
 import 'package:stunting_web/widgets/drawer_menu.dart';
@@ -21,12 +22,14 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void confirmLogout() async {
-    final confirm = await DialogItem.showDialogLogout(
+    final confirm = await DialogItem.showDialogItem(
       context: context,
       title: "Logout",
       message: "Apakah Anda Yakin Ingin Keluar ?",
       confirmButtonText: "Ya, Keluar",
       cancelButtonText: "Batal",
+      color: CustomColor.redMain,
+      icon: Icons.logout_outlined,
     );
 
     if (confirm == true) {

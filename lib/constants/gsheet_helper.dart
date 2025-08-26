@@ -37,7 +37,7 @@ class GSheetHelper {
     required String spreadsheetId,
     required String apiKey,
   }) async {
-    final range = "'Form data setengah mateng'!A2:D";
+    final range = "'Form data siap olah (naive bayes)'!A2:CT";
     final url = Uri.parse(
       'https://sheets.googleapis.com/v4/spreadsheets/$spreadsheetId/values/$range?key=$apiKey',
     );
@@ -57,6 +57,7 @@ class GSheetHelper {
         final nama = (row.length > 1) ? row[1].toString() : '';
         final jenis_kelamin = (row.length > 2) ? row[2].toString() : '';
         final usia = (row.length > 3) ? row[3].toString() : '';
+        final is_stunting = (row.length > 96) ? row[96].toString() : '';
 
         results.add({
           'row': rowNumber,
@@ -64,6 +65,7 @@ class GSheetHelper {
           'nama': nama,
           'jenis_kelamin': jenis_kelamin,
           'usia': usia,
+          'is_stunting': is_stunting,
         });
       }
       return results;

@@ -12,4 +12,5 @@ class CustomColor {
   static const Color whiteSecondary = Color.fromARGB(255, 248, 244, 238);
   static const Color greenMain = Color(0xFF16b3ac);
   static const Color greenSecondary = Color(0xFFd2dc02);
+  static const Color redMain = Color.fromARGB(255, 203, 0, 61);
 }

@@ -11,6 +11,10 @@ class FormAnak extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         //Berat Badan
+        const Text(
+          "4 Berat Badan (Kg)",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveTextField<String>(
           formControlName: 'berat_badan',
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -19,7 +23,6 @@ class FormAnak extends StatelessWidget {
             FilteringTextInputFormatter.allow(RegExp(r'^\d*([,]\d*)?$')),
           ],
           decoration: const InputDecoration(
-            labelText: 'Berat Badan (Kg)',
             hintText: "Masukan Berat Badan Anak",
             helperText: "Contoh : 3,7",
             border: OutlineInputBorder(),
@@ -31,6 +34,10 @@ class FormAnak extends StatelessWidget {
         const SizedBox(height: 16),
 
         //Tinggi Badan
+        const Text(
+          "5 Tinggi Badan (cm)",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveTextField<String>(
           formControlName: 'tinggi_badan',
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -39,7 +46,6 @@ class FormAnak extends StatelessWidget {
             FilteringTextInputFormatter.allow(RegExp(r'^\d*([,]\d*)?$')),
           ],
           decoration: const InputDecoration(
-            labelText: 'Tinggi Badan (cm)',
             helperText: "Contoh : 104.5",
             hintText: "Masukan Tinggi Badan Anak",
             border: OutlineInputBorder(),
@@ -51,6 +57,10 @@ class FormAnak extends StatelessWidget {
         const SizedBox(height: 16),
 
         //Lingkar Kepala
+        const Text(
+          "6 Lingkar Kepala (cm)",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveTextField<String>(
           formControlName: 'lingkar_kepala',
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -59,7 +69,6 @@ class FormAnak extends StatelessWidget {
             FilteringTextInputFormatter.allow(RegExp(r'^\d*([,]\d*)?$')),
           ],
           decoration: const InputDecoration(
-            labelText: 'Lingkar Kepala (cm)',
             helperText: "Contoh : 36,5",
             hintText: "Masukan Ukuran Lingkar Kepala Anak",
             border: OutlineInputBorder(),
@@ -71,6 +80,10 @@ class FormAnak extends StatelessWidget {
         const SizedBox(height: 16),
 
         //Lingkar Lengan
+        const Text(
+          "7 Lingkar Lengan (cm)",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveTextField<String>(
           formControlName: 'lingkar_lengan',
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -79,7 +92,6 @@ class FormAnak extends StatelessWidget {
             FilteringTextInputFormatter.allow(RegExp(r'^\d*([,]\d*)?$')),
           ],
           decoration: const InputDecoration(
-            labelText: 'Lingkar Lengan (cm)',
             hintText: "Masukan Lingkar Tangan Anak",
             helperText: "Contoh : 12,5",
             border: OutlineInputBorder(),
@@ -88,6 +100,7 @@ class FormAnak extends StatelessWidget {
             ValidationMessage.required: (_) => 'Masukan Lingkar Tangan Anak',
           },
         ),
+        const SizedBox(height: 16),
       ],
     );
   }

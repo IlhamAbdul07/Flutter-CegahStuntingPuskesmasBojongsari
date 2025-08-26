@@ -10,10 +10,14 @@ class FormDiri extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Nama
+        const Text(
+          "1. Nama Anak",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveTextField<String>(
           formControlName: 'nama',
           decoration: const InputDecoration(
-            labelText: '* Nama Anak',
+            hintText: 'Nama Lengkap Anak',
             helperText: "sebutkan nama anak anda",
             border: OutlineInputBorder(),
           ),
@@ -24,10 +28,14 @@ class FormDiri extends StatelessWidget {
         const SizedBox(height: 16),
 
         // Dropdown jenis kelamin
+        const Text(
+          "2. Jenis Kelamin",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveDropdownField<String>(
           formControlName: 'jenis_kelamin',
           decoration: const InputDecoration(
-            labelText: '* Jenis Kelamin',
+            hintText: 'Jenis Kelamin Anak',
             helperText: "Pilih Jenis Kelamin",
             border: OutlineInputBorder(),
           ),
@@ -39,13 +47,17 @@ class FormDiri extends StatelessWidget {
             ValidationMessage.required: (_) => 'Pilih jenis kelamin',
           },
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
 
         // Umur
+        const Text(
+          "3 Usia Anak",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
         ReactiveDatePicker<DateTime>(
           formControlName: 'tanggal_lahir',
-          fieldLabelText: "* Usia Anak",
-          helpText: "Masukkan Tanggal Lahir Anak",
+          fieldLabelText: "Pilih Tanggal Lahir",
+
           firstDate: DateTime(2000),
           lastDate: DateTime.now(),
           builder: (context, picker, child) {
@@ -53,8 +65,8 @@ class FormDiri extends StatelessWidget {
               onTap: picker.showPicker,
               child: InputDecorator(
                 decoration: const InputDecoration(
-                  labelText: 'Usia Anak',
                   border: OutlineInputBorder(),
+                  helperText: "Masukkan Tanggal Lahir Anak",
                 ),
                 child: picker.value == null
                     ? const Text('Pilih tanggal')

@@ -24,13 +24,14 @@ class _LoginPageState extends State<LoginPage> {
     _checkLoginStatus();
   }
 
-  Future<void> _saveLoginStatus() async {
+  Future<void> _saveLoginStatus(String role) async {
     final prefs = await SharedPreferences.getInstance();
     final now = DateTime.now().millisecondsSinceEpoch;
-    final expirationTime = now + 3600000; // Kadaluarsa dalam 1 jam
+    final expirationTime = now + 3600000;
 
     await prefs.setBool('isLoggedIn', true);
     await prefs.setInt('expirationTime', expirationTime);
+    await prefs.setString('role', role);
   }
 
   Future<void> _checkLoginStatus() async {
@@ -52,9 +53,11 @@ class _LoginPageState extends State<LoginPage> {
       setState(() => _isLoading = true);
 
       Future.delayed(const Duration(seconds: 1), () {
-        if (_usernameController.text == 'admin' &&
-            _passwordController.text == '123') {
-          _saveLoginStatus(); // Simpan status login
+        if ((_usernameController.text == 'admin' &&
+                _passwordController.text == '12345678') ||
+            (_usernameController.text == 'user' &&
+                _passwordController.text == '12345678')) {
+          _saveLoginStatus(_usernameController.text); // Simpan status login
           ScaffoldMessenger.of(context);
           General.showSnackBar(context, 'Berhasil Login');
           Navigator.pushReplacement(
@@ -62,9 +65,8 @@ class _LoginPageState extends State<LoginPage> {
             MaterialPageRoute(builder: (context) => HomePage()),
           );
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Username atau password salah')),
-          );
+          ScaffoldMessenger.of(context);
+          General.showSnackBar(context, 'Username atau password salah');
         }
         setState(() => _isLoading = false);
       });

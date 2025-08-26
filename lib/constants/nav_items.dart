@@ -8,3 +8,11 @@ List<IconData> navIcons = [
   Icons.edit_document,
   Icons.logout_rounded,
 ];
+
+List<String> navTitlesUser = ["Beranda", "Survey", "Log Out"];
+
+List<IconData> navIconsUser = [
+  Icons.home,
+  Icons.add_task_rounded,
+  Icons.logout_rounded,
+];

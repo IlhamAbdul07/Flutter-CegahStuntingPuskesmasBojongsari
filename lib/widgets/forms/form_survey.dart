@@ -10,7 +10,7 @@ class FormSurvey extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Kualitas MPASI",
+          "21. Kualitas MPASI",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -25,9 +25,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Pemberian Makan Anak",
+          "22. Pemberian Makan Anak",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Seberapa sering Ibu memberi makan anak dalam sehari?"),
@@ -40,9 +40,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Pola Makan Sehat",
+          "23. Pola Makan Sehat",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -60,9 +60,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Status Gizi Ibu Hamil",
+          "24. Status Gizi Ibu Hamil",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -77,9 +77,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Riwayat Imunisasi",
+          "25. Riwayat Imunisasi",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -94,9 +94,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Kebersihan Lingkungan",
+          "26. Kebersihan Lingkungan",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -111,9 +111,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Kebersihan Diri",
+          "27. Kebersihan Diri",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -128,9 +128,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Olahraga",
+          "28. Olahraga",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -145,9 +145,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Dukungan Keluarga",
+          "29. Dukungan Keluarga",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -162,9 +162,9 @@ class FormSurvey extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Pola Asuh",
+          "30. Pola Asuh",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Bagaimana pola pengasuhan ibu terhadap anak?"),

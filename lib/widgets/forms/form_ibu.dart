@@ -10,7 +10,7 @@ class FormIbu extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Posisi Anak Dalam Keluarga",
+          "8. Posisi Anak Dalam Keluarga",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Anak ke berapa dalam keluarga ini?"),
@@ -26,9 +26,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Usia Ibu Saat Kehamilan",
+          "9. Usia Ibu Saat Kehamilan",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Saat usia berapa ibu hamil anak ini?"),
@@ -41,9 +41,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Pendidikan Ibu",
+          "10. Pendidikan Ibu",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Apa pendidikan terakhir ibu?"),
@@ -56,9 +56,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Kondisi Ekonomi",
+          "11. Kondisi Ekonomi",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Berapa rata-rata penghasilan keluarga per bulan?"),
@@ -71,9 +71,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Pemeriksaan Rutin",
+          "12. Pemeriksaan Rutin",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -88,9 +88,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Istirahat",
+          "13. Istirahat",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -105,9 +105,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Menghindari Rokok",
+          "14. Menghindari Rokok",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -122,9 +122,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Riwayat Penyakit",
+          "15. Riwayat Penyakit",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -139,9 +139,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Kesehatan Mental",
+          "16. Kesehatan Mental",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -156,9 +156,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Persalinan",
+          "17. Persalinan",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -173,9 +173,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Layanan Kesehatan",
+          "18. Layanan Kesehatan",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -190,9 +190,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "ASI",
+          "19. ASI",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text(
@@ -207,9 +207,9 @@ class FormIbu extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         const Text(
-          "Makanan Pendamping ASI",
+          "20. Makanan Pendamping ASI",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         const Text("Kapan Ibu mulai memberikan MPASI kepada anak?"),

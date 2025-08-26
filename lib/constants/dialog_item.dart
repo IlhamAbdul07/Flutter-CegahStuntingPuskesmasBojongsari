@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DialogItem {
-  static Future<bool?> showDialogLogout({
+  static Future<bool?> showDialogItem({
     required BuildContext context,
     required String title,
     required String message,
     required String confirmButtonText,
     required String cancelButtonText,
+    required Color color,
+    required IconData icon,
   }) async {
     final confirm = await showDialog<bool>(
       context: context,
@@ -26,7 +28,7 @@ class DialogItem {
                   width: MediaQuery.of(context).size.width * 0.35,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: color,
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(16),
@@ -34,11 +36,7 @@ class DialogItem {
                     ),
                   ),
                   child: Center(
-                    child: Icon(
-                      Icons.logout_outlined,
-                      size: 80,
-                      color: Colors.white,
-                    ),
+                    child: Icon(icon, size: 80, color: Colors.white),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -83,7 +81,7 @@ class DialogItem {
                     TextButton(
                       onPressed: () => Navigator.of(context).pop(true),
                       style: TextButton.styleFrom(
-                        backgroundColor: Colors.red[800],
+                        backgroundColor: color,
                         padding: EdgeInsets.symmetric(
                           horizontal: 30,
                           vertical: 10,

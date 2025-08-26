@@ -26,12 +26,10 @@ class General {
           ),
         ),
         duration: Duration(seconds: durationSeconds ?? 2),
-        behavior: SnackBarBehavior.floating, // Supaya tidak full width
+        behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10), // Snackbar rounded
-        ),
-        backgroundColor: Colors.black87, // Warna lebih elegan
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: Colors.black87,
       ),
     );
   }

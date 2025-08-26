@@ -18,12 +18,14 @@ class LaporanWidget extends StatefulWidget {
 class _LaporanWidgetState extends State<LaporanWidget> {
   bool isLoading = false;
   void confirmDelete(int row) async {
-    final confirm = await DialogItem.showDialogLogout(
+    final confirm = await DialogItem.showDialogItem(
       context: context,
       title: "Hapus Data",
       message: "Apakah Anda Yakin Ingin Menghapus Data Ini ?",
       confirmButtonText: "Ya, Hapus",
       cancelButtonText: "Batal",
+      color: CustomColor.redMain,
+      icon: Icons.delete_outline_outlined,
     );
 
     if (confirm == true) {
@@ -169,6 +171,17 @@ class _LaporanWidgetState extends State<LaporanWidget> {
                                   DataColumn(
                                     label: Center(
                                       child: Text(
+                                        'Stunting',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    label: Center(
+                                      child: Text(
                                         'Aksi',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -187,7 +200,28 @@ class _LaporanWidgetState extends State<LaporanWidget> {
                                       DataCell(
                                         Text(item['jenis_kelamin'] ?? ''),
                                       ),
-                                      DataCell(Text(item['usia'] ?? '')),
+                                      DataCell(
+                                        Text(
+                                          item['usia']
+                                                  ?.split('|')
+                                                  .first
+                                                  .trim() ??
+                                              '',
+                                        ),
+                                      ),
+                                      DataCell(
+                                        Text(
+                                          item['is_stunting'] == "1"
+                                              ? "Stunting"
+                                              : "Normal",
+                                          style: TextStyle(
+                                            color: item['is_stunting'] == "1"
+                                                ? Colors.red
+                                                : Colors.green,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
                                       DataCell(
                                         Row(
                                           mainAxisAlignment:
