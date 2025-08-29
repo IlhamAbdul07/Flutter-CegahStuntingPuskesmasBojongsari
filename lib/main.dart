@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Cegah Stunting',
       initialRoute: '/',
-      routes: {'/': (context) => LoginPage(), '/home': (context) => HomePage()},
+      routes: {
+        '/login': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+      },
     );
   }
 }

@@ -31,23 +31,13 @@ class _HasilSurveyState extends State<HasilSurvey> {
     );
   }
 
-  // Future<void> _generatePdfWithLoading(Map<String, dynamic> data) async {
-  //   setState(() => _isGeneratingPdf = true);
-
-  //   try {
-  //     await _generatePdf(data); // fungsi PDF kamu
-  //   } finally {
-  //     if (mounted) {
-  //       setState(() => _isGeneratingPdf = false);
-  //     }
-  //   }
-  // }
-
   /// Fungsi generate PDF
   Future<void> _generatePdf(Map<String, dynamic> data) async {
     final pdf = pw.Document();
     final logoData = await rootBundle.load('assets/logo.png');
     final logoImage = pw.MemoryImage(logoData.buffer.asUint8List());
+    final fontData = await rootBundle.load("assets/fonts/Roboto-Regular.ttf");
+    final printFont = pw.Font.ttf(fontData);
 
     pdf.addPage(
       pw.MultiPage(
@@ -134,6 +124,7 @@ class _HasilSurveyState extends State<HasilSurvey> {
                     child: pw.Text(
                       value.isEmpty ? "-" : value,
                       style: pw.TextStyle(
+                        font: printFont,
                         fontSize: 12,
                         fontWeight: isHighlight
                             ? pw.FontWeight.bold

@@ -96,7 +96,7 @@ class GSheetHelper {
       data['tanggal'] = row[0].toString();
       data['nama'] = row[1].toString();
       data['jenis_kelamin'] = row[2].toString();
-      data['usia'] = row[3].toString();
+      data['usia'] = row[3].toString().replaceAll("–", "-");
       data['berat_badan_terhadap_umur'] = row[4].toString();
       data['tinggi_badan_terhadap_umur'] = row[5].toString();
       data['berat_badan_terhadap_tinggi'] = row[6].toString();
@@ -105,7 +105,7 @@ class GSheetHelper {
       data['posisi_anak'] = row[9].toString();
       data['ibu_hamil'] = row[10].toString();
       data['pendidikan_ibu'] = row[11].toString();
-      data['kondisi_ekonomi'] = row[12].toString();
+      data['kondisi_ekonomi'] = row[12].toString().replaceAll("–", "-");
       data['pemeriksaan_rutin'] = row[13].toString();
       data['istirahat'] = row[14].toString();
       data['menghindari_rokok'] = row[15].toString();
