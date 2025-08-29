@@ -12,7 +12,7 @@ class FormAnak extends StatelessWidget {
       children: [
         //Berat Badan
         const Text(
-          "4 Berat Badan (Kg)",
+          "4. Berat Badan (Kg)",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         ReactiveTextField<String>(
@@ -35,7 +35,7 @@ class FormAnak extends StatelessWidget {
 
         //Tinggi Badan
         const Text(
-          "5 Tinggi Badan (cm)",
+          "5. Tinggi Badan (cm)",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         ReactiveTextField<String>(
@@ -58,7 +58,7 @@ class FormAnak extends StatelessWidget {
 
         //Lingkar Kepala
         const Text(
-          "6 Lingkar Kepala (cm)",
+          "6. Lingkar Kepala (cm)",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         ReactiveTextField<String>(
@@ -81,7 +81,7 @@ class FormAnak extends StatelessWidget {
 
         //Lingkar Lengan
         const Text(
-          "7 Lingkar Lengan (cm)",
+          "7. Lingkar Lengan (cm)",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         ReactiveTextField<String>(

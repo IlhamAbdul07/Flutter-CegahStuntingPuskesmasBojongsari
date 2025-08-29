@@ -146,8 +146,7 @@ class _HasilSurveyState extends State<HasilSurvey> {
     // Preview / download
     await Printing.layoutPdf(
       onLayout: (format) async => pdf.save(),
-      name:
-          "Hasil_Deteksi_${data['nama']}_${DateFormat('yyyyMMdd_HHmm').format(DateTime.now())}.pdf",
+      name: "Hasil_Deteksi_Stunting.pdf",
     );
   }
 

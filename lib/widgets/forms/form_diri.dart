@@ -51,7 +51,7 @@ class FormDiri extends StatelessWidget {
 
         // Umur
         const Text(
-          "3 Usia Anak",
+          "3. Usia Anak",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
         ReactiveDatePicker<DateTime>(
