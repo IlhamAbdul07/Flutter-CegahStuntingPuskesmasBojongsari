@@ -6,23 +6,21 @@ class SectionFour extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
-      height: 450.0,
+      padding: const EdgeInsets.all(75),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(75),
-              child: Text(
-                InfoText.description[2],
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.018,
-                  color: Colors.black87,
-                  height: 1.5,
-                ),
+            child: Text(
+              InfoText.description[2],
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.018,
+                color: Colors.black87,
+                height: 1.5,
               ),
             ),
           ),
@@ -33,7 +31,6 @@ class SectionFour extends StatelessWidget {
               child: Image.asset(
                 'assets/home2.png',
                 width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.width * 0.5,
               ),
             ),
           ),
