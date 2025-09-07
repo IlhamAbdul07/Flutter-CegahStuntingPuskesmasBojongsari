@@ -425,13 +425,22 @@ class Formula {
         .toList();
 
     if (parts.isEmpty) return "";
+    return parts
+        .asMap()
+        .entries
+        .map((entry) {
+          final index = entry.key + 1; // biar mulai dari 1
+          final value = entry.value;
+          return "$index. $value";
+        })
+        .join("\n");
 
-    if (parts.length == 1) {
-      return parts[0];
-    } else if (parts.length == 2) {
-      return "${parts[0]} dan ${parts[1]}";
-    } else {
-      return "${parts.sublist(0, parts.length - 1).join(', ')} dan ${parts.last}";
-    }
+    // if (parts.length == 1) {
+    //   return parts[0];
+    // } else if (parts.length == 2) {
+    //   return "${parts[0]} dan ${parts[1]}";
+    // } else {
+    //   return "${parts.sublist(0, parts.length - 1).join(', ')} dan ${parts.last}";
+    // }
   }
 }

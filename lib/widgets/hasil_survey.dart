@@ -6,7 +6,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:intl/intl.dart';
+import 'package:stunting_web/constants/fields_label.dart';
 
 class HasilSurvey extends StatefulWidget {
   final int row;
@@ -75,8 +75,10 @@ class _HasilSurveyState extends State<HasilSurvey> {
           ),
           // pw.SizedBox(height: 16),
           ...data.entries.map((e) {
-            final key = e.key.replaceAll("_", " ");
-            final formattedKey = toBeginningOfSentenceCase(key);
+            // final key = e.key.replaceAll("_", " ");
+            // final formattedKey = toBeginningOfSentenceCase(key);
+            // final value = e.value.toString();
+            final key = fieldLabels[e.key] ?? e.key.replaceAll("_", " ");
             final value = e.value.toString();
 
             final isHighlight = [
@@ -102,7 +104,7 @@ class _HasilSurveyState extends State<HasilSurvey> {
                   pw.Expanded(
                     flex: 2,
                     child: pw.Text(
-                      formattedKey,
+                      key,
                       style: pw.TextStyle(
                         fontWeight: pw.FontWeight.bold,
                         fontSize: 12,
@@ -272,9 +274,14 @@ class _HasilSurveyState extends State<HasilSurvey> {
                         const SizedBox(height: 16),
 
                         // Render data
+                        // ...data.entries.map((e) {
+                        //   final key = e.key.replaceAll("_", " ");
+                        //   //.toUpperCase()
+                        //   final value = e.value.toString();
                         ...data.entries.map((e) {
-                          final key = e.key.replaceAll("_", " ");
-                          //.toUpperCase()
+                          // ambil label dari map, fallback ke key asli (title case)
+                          final key =
+                              fieldLabels[e.key] ?? e.key.replaceAll("_", " ");
                           final value = e.value.toString();
 
                           // Highlight field khusus

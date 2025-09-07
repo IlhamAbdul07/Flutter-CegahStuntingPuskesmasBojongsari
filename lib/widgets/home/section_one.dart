@@ -59,7 +59,7 @@ class SectionOne extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "APA ITU STUNTING ?",
+                          "APA ITU STUNTING?",
                           style: TextStyle(
                             fontSize: constraints.maxWidth * 0.025,
                             fontWeight: FontWeight.w900,
