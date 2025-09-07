@@ -75,7 +75,7 @@ flutter:
   assets:
    - assets/home1.png
    - assets/home2.png
-   - assets/siteIcon.png
+   - web/icons/siteIcon.png
    - assets/logo.png
    - assets/icons/
    - assets/fonts/Roboto-Regular.ttf
